@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://wonderful-venerated-dotterel-6pa1pz.teleporthq.app/sitemap.xml
