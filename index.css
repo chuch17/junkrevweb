@@ -90,34 +90,34 @@
 }
  
 .home-thq-services-snapshot-elm {
-  height: 1628px;
+  min-height: auto;
 }
- 
+
 .home-thq-services-grid-elm {
-  height: 1296px;
+  min-height: auto;
 }
- 
+
 .home-thq-service-card-elm1 {
-  height: 583px;
+  min-height: auto;
 }
- 
+
 .home-thq-service-image-elm1 {
-  height: 142px;
+  height: 100%;
 }
- 
+
 .home-thq-service-card-elm2 {
-  height: 580px;
+  min-height: auto;
 }
  
 .home-container11 {
   flex: 0 0 auto;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   flex-direction: column;
 }
- 
+
 .home-thq-process-steps-elm {
-  height: 1436px;
+  min-height: auto;
 }
  
 .home-thq-step-visual-elm1 {
