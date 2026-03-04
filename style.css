@@ -752,7 +752,7 @@
   position: sticky;
   transition: background-color 0.3s ease;
   border-bottom: var(--divider-value);
-  background-color: var(--color-surface);
+  background-color: var(--color-primary);
 }
  
 .navigation-container {
@@ -767,7 +767,7 @@
  
 .navigation-brand {
   gap: var(--spacing-sm);
-  color: var(--color-on-surface);
+  color: #ffffff;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -780,7 +780,7 @@
 }
  
 .navigation-mobile-toggle {
-  color: var(--color-on-surface);
+  color: #ffffff;
   border: none;
   cursor: pointer;
   display: none;
@@ -791,7 +791,7 @@
 }
  
 .navigation-logo-icon {
-  color: var(--color-on-primary);
+  color: var(--color-primary);
   width: 40px;
   height: 40px;
   display: flex;
@@ -799,7 +799,7 @@
   align-items: center;
   border-radius: var(--border-radius-md);
   justify-content: center;
-  background-color: var(--color-primary);
+  background-color: #ffffff;
 }
  
 .navigation-links {
@@ -813,7 +813,7 @@
 }
  
 .navigation-link {
-  color: var(--color-on-surface-secondary);
+  color: #ffffff;
   position: relative;
   font-size: var(--font-size-sm);
   transition: color 0.2s ease;
@@ -903,11 +903,11 @@
   content: "";
   position: absolute;
   transition: width 0.3s ease;
-  background-color: var(--color-primary);
+  background-color: #ffffff;
 }
- 
+
 .navigation-link:hover {
-  color: var(--color-primary);
+  color: #e0e0e0;
 }
  
 .navigation-link:hover::after {
@@ -921,6 +921,17 @@
 .navigation-mobile-link:hover {
   color: var(--color-primary);
   transform: translateX(10px);
+}
+
+.navigation-root .btn-primary {
+  background-color: #ffffff;
+  color: var(--color-primary);
+  border-color: #ffffff;
+}
+
+.navigation-root .btn-primary:hover {
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
 }
  
 
@@ -1186,12 +1197,12 @@
   height: 100%;
   z-index: 2;
   position: absolute;
-  background: var(--color-scrim);
+  background: rgba(255, 255, 255, 0.65) !important;
 }
- 
+
 .hero-text-block {
   flex: 6;
-  color: var(--color-surface);
+  color: #000000;
 }
  
 .hero-form-container {
@@ -1236,7 +1247,7 @@
 
 .services-snapshot .service-card .section-subtitle,
 .services-snapshot .service-card .section-content {
-  color: var(--color-primary);
+  color: #ffffff;
 }
  
 .container-inner {
@@ -1261,7 +1272,7 @@
   border: var(--divider-value);
   display: flex;
   overflow: hidden;
-  background: var(--color-surface);
+  background: var(--color-primary);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: var(--border-radius-card);
   flex-direction: column;
