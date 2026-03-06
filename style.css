@@ -2124,6 +2124,40 @@
   line-height: 1.2;
   letter-spacing: 0.02em;
 }
+
+/* Brand Styles */
+.brand-text-container {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+.footer-brand-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-subtitle {
+  color: #f45d22;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.hero-brand-subtitle {
+  display: block;
+  font-size: 0.5em; /* Relative to the hero title size */
+  font-weight: 400;
+  margin-top: 0.2em;
+  opacity: 0.9;
+}
  
 @media(max-width: 991px) {
   .thq-grid-4 {
