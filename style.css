@@ -2391,14 +2391,16 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: var(--spacing-xl);
-  gap: var(--spacing-md);
+  margin-top: var(--spacing-2xl);
+  gap: var(--spacing-lg);
 }
 
-.review-cta-text {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
+.review-cta-container .review-cta-text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
 }
 
 .review-cta-btn {
