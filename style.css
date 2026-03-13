@@ -2386,8 +2386,21 @@
     width: 48px;
     height: 48px;
   }
-  .home-step-item1 {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+  .review-cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  gap: var(--spacing-md);
+}
+
+.review-cta-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.review-cta-btn {
+  width: 100%;
 }
