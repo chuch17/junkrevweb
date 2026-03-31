@@ -137,6 +137,12 @@
         opacity: 0.5;
         cursor: not-allowed;
       }
+      .optin-success h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-primary, #0b61b3);
+        margin-bottom: 0.75rem;
+      }
       .optin-fine-print {
         margin-top: 1.25rem;
         font-size: 0.8rem;
@@ -190,23 +196,26 @@
           </div>
 
           <div class="optin-disclosures">
-            <p><strong>Message Types:</strong> By opting in, you will receive SMS/MMS text messages from Raccoon Junk Removal &amp; Demolition LLC (doing business as Clean Raccoon). These messages include: appointment confirmations and reminders, service status updates, customer support responses, account notifications, and promotional offers.</p>
-            <p><strong>Message Frequency:</strong> Message frequency varies based on your service activity and interactions with us. You may receive multiple messages per week.</p>
-            <p><strong>Message and Data Rates:</strong> Message and data rates may apply depending on your mobile carrier and phone plan. Raccoon Junk Removal &amp; Demolition LLC is not responsible for any charges from your carrier.</p>
-            <p><strong>Opt-Out Instructions:</strong> You can opt out of receiving text messages at any time by replying <strong>STOP</strong> to any message. After opting out, you will receive one final confirmation message and will no longer receive texts unless you opt in again. For help, reply <strong>HELP</strong> to any message or contact us at <a href="mailto:cleanraccoon.junkremoval@gmail.com">cleanraccoon.junkremoval@gmail.com</a> or <a href="tel:6027552034">(602) 755-2034</a>.</p>
+            <p><strong>Business Name:</strong> Raccoon Junk Removal &amp; Demolition LLC, doing business as Clean Raccoon.</p>
+            <p><strong>Message Types:</strong> If you opt in, you will receive SMS/MMS text messages including: appointment confirmations and reminders, service status updates, customer support responses, account notifications, and promotional offers.</p>
+            <p><strong>Message Frequency:</strong> Message frequency varies. You may receive multiple messages per week depending on your service activity and interactions with us.</p>
+            <p><strong>Message and Data Rates:</strong> Message and data rates may apply. Your mobile carrier may charge you for each text message you send or receive. Raccoon Junk Removal &amp; Demolition LLC is not responsible for any charges from your carrier.</p>
+            <p><strong>Opt-Out Instructions:</strong> You can cancel SMS messages at any time. Just text <strong>STOP</strong> to any message from us. After you send the message STOP, we will send you a reply message to confirm that you have been unsubscribed. You will no longer receive SMS messages from us unless you opt in again. If you want to join again, just sign up as you did the first time.</p>
+            <p><strong>Help:</strong> If you are experiencing issues with the messaging program, reply <strong>HELP</strong> to any message, or contact us at <a href="mailto:cleanraccoon.junkremoval@gmail.com">cleanraccoon.junkremoval@gmail.com</a> or call <a href="tel:6027552034">(602) 755-2034</a>.</p>
+            <p><strong>Privacy:</strong> Please review our <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a> for more information on how we handle your data.</p>
           </div>
 
           <div class="optin-consent">
             <input type="checkbox" id="optinConsent" class="optin-checkbox" />
             <label for="optinConsent" class="optin-consent-text">
-              I agree to receive recurring automated SMS/MMS text messages from <strong>Raccoon Junk Removal &amp; Demolition LLC</strong> at the phone number provided. I understand that message frequency varies, message and data rates may apply, and I can reply <strong>STOP</strong> to opt out at any time. Consent is not a condition of purchase. I have read and agree to the <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
+              I agree to receive recurring automated SMS/MMS text messages from <strong>Raccoon Junk Removal &amp; Demolition LLC</strong> (doing business as <strong>Clean Raccoon</strong>) at the phone number provided. I understand that message frequency varies, message and data rates may apply, and I can text <strong>STOP</strong> to opt out at any time or text <strong>HELP</strong> for assistance. Checking this box is optional. Consent is not a condition of any purchase. I have read the <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
             </label>
           </div>
 
-          <button type="submit" id="optinSubmit" class="optin-submit" disabled>Subscribe to Text Updates</button>
+          <button type="submit" id="optinSubmit" class="optin-submit">Subscribe to Text Updates</button>
 
           <p class="optin-fine-print">
-            Carriers are not liable for delayed or undelivered messages. View our <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
+            Carriers are not liable for delayed or undelivered messages. Consent to receive texts is not required to purchase any goods or services. View our <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
           </p>
         </form>
       </div>
@@ -223,13 +232,8 @@
       (function() {
         var checkbox = document.getElementById("optinConsent");
         var submitBtn = document.getElementById("optinSubmit");
-        var form = document.getElementById("optinForm");
         var formContainer = document.getElementById("optinFormContainer");
         var successMsg = document.getElementById("optinSuccess");
-
-        checkbox.addEventListener("change", function() {
-          submitBtn.disabled = !checkbox.checked;
-        });
 
         submitBtn.addEventListener("click", function() {
           var name = document.getElementById("optinName").value.trim();
@@ -240,13 +244,14 @@
             return;
           }
 
-          if (!checkbox.checked) {
-            alert("Please check the consent box to continue.");
-            return;
+          if (checkbox.checked) {
+            formContainer.style.display = "none";
+            successMsg.style.display = "block";
+          } else {
+            formContainer.style.display = "none";
+            successMsg.innerHTML = '<h2>Thank you!</h2><p>Your information has been submitted. If you would like to receive SMS updates in the future, you can return to this page and check the consent box.</p><br><a href="./index.html" class="optin-back-link">&larr; Return to Home</a>';
+            successMsg.style.display = "block";
           }
-
-          formContainer.style.display = "none";
-          successMsg.style.display = "block";
         });
       })();
     </script>
