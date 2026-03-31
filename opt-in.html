@@ -69,11 +69,32 @@
         border-color: var(--color-primary, #0b61b3);
         box-shadow: 0 0 0 2px rgba(11, 97, 179, 0.15);
       }
+      .optin-disclosures {
+        background: #f8f9fb;
+        border: 1px solid var(--color-border, #bfc9d6);
+        border-radius: 8px;
+        padding: 1.25rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+      .optin-disclosures p {
+        font-size: 0.85rem;
+        color: var(--color-on-surface-secondary, #475569);
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+      }
+      .optin-disclosures p:last-child {
+        margin-bottom: 0;
+      }
+      .optin-disclosures a {
+        color: var(--color-primary, #0b61b3);
+        text-decoration: underline;
+      }
       .optin-consent {
         display: flex;
         align-items: flex-start;
         gap: 12px;
-        margin-top: 1.5rem;
+        margin-top: 1.25rem;
         margin-bottom: 1.5rem;
       }
       .optin-checkbox {
@@ -168,17 +189,24 @@
             <input type="email" id="optinEmail" class="optin-input" placeholder="john@example.com" />
           </div>
 
+          <div class="optin-disclosures">
+            <p><strong>Message Types:</strong> By opting in, you will receive SMS/MMS text messages from Raccoon Junk Removal &amp; Demolition LLC (doing business as Clean Raccoon). These messages include: appointment confirmations and reminders, service status updates, customer support responses, account notifications, and promotional offers.</p>
+            <p><strong>Message Frequency:</strong> Message frequency varies based on your service activity and interactions with us. You may receive multiple messages per week.</p>
+            <p><strong>Message and Data Rates:</strong> Message and data rates may apply depending on your mobile carrier and phone plan. Raccoon Junk Removal &amp; Demolition LLC is not responsible for any charges from your carrier.</p>
+            <p><strong>Opt-Out Instructions:</strong> You can opt out of receiving text messages at any time by replying <strong>STOP</strong> to any message. After opting out, you will receive one final confirmation message and will no longer receive texts unless you opt in again. For help, reply <strong>HELP</strong> to any message or contact us at <a href="mailto:cleanraccoon.junkremoval@gmail.com">cleanraccoon.junkremoval@gmail.com</a> or <a href="tel:6027552034">(602) 755-2034</a>.</p>
+          </div>
+
           <div class="optin-consent">
             <input type="checkbox" id="optinConsent" class="optin-checkbox" />
             <label for="optinConsent" class="optin-consent-text">
-              I agree to receive SMS/MMS text messages from <strong>Raccoon Junk Removal &amp; Demolition LLC</strong> (doing business as Clean Raccoon). Messages may include appointment confirmations, service updates, customer support responses, and promotional offers. Message frequency varies. Message and data rates may apply. I understand I can reply <strong>STOP</strong> to opt out at any time or reply <strong>HELP</strong> for assistance. I have read and agree to the <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
+              I agree to receive recurring automated SMS/MMS text messages from <strong>Raccoon Junk Removal &amp; Demolition LLC</strong> at the phone number provided. I understand that message frequency varies, message and data rates may apply, and I can reply <strong>STOP</strong> to opt out at any time. Consent is not a condition of purchase. I have read and agree to the <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
             </label>
           </div>
 
           <button type="submit" id="optinSubmit" class="optin-submit" disabled>Subscribe to Text Updates</button>
 
           <p class="optin-fine-print">
-            By checking the box above and submitting this form, you provide your express written consent to receive recurring automated SMS/MMS messages from Raccoon Junk Removal &amp; Demolition LLC at the phone number provided. Consent is not a condition of purchase. Carriers are not liable for delayed or undelivered messages. View our <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
+            Carriers are not liable for delayed or undelivered messages. View our <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
           </p>
         </form>
       </div>
