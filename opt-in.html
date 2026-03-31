@@ -35,7 +35,20 @@
       .optin-subheading {
         font-size: 1.05rem;
         color: var(--color-on-surface-secondary, #475569);
+        margin-bottom: 1.5rem;
+      }
+      .optin-page > p {
+        font-size: 0.95rem;
+        color: var(--color-on-surface-secondary, #475569);
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+      }
+      .optin-page > p:last-of-type {
         margin-bottom: 2rem;
+      }
+      .optin-page > p a {
+        color: var(--color-primary, #0b61b3);
+        text-decoration: underline;
       }
       .optin-form {
         background: #ffffff;
@@ -178,6 +191,20 @@
       <h1 class="optin-heading">Stay in the Loop</h1>
       <p class="optin-subheading">Sign up to receive text messages from Clean Raccoon about appointment updates, service notifications, and exclusive offers.</p>
 
+      <p>By submitting this form you may receive SMS/MMS text messages from <strong>Raccoon Junk Removal &amp; Demolition LLC</strong> (doing business as Clean Raccoon).</p>
+
+      <p><strong>Message Types:</strong> Promotional messages, transactional updates, service alerts, appointment confirmations, and customer support.</p>
+
+      <p><strong>Message Frequency:</strong> Message frequency may vary. Up to 4 messages per month.</p>
+
+      <p><strong>Message and Data Rates:</strong> Message and data rates may apply.</p>
+
+      <p><strong>Opt-Out:</strong> Reply STOP to unsubscribe from text messages at any time.</p>
+
+      <p><strong>Help:</strong> Reply HELP for help or contact us at <a href="mailto:cleanraccoon.junkremoval@gmail.com">cleanraccoon.junkremoval@gmail.com</a> or <a href="tel:6027552034">(602) 755-2034</a>.</p>
+
+      <p>View our <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.</p>
+
       <div class="optin-form" id="optinFormContainer">
         <form id="optinForm" onsubmit="return false;">
           <div class="optin-field">
@@ -195,16 +222,6 @@
             <input type="email" id="optinEmail" class="optin-input" placeholder="john@example.com" />
           </div>
 
-          <div class="optin-disclosures">
-            <p><strong>Business Name:</strong> Raccoon Junk Removal &amp; Demolition LLC, doing business as Clean Raccoon.</p>
-            <p><strong>Message Types:</strong> If you opt in, you will receive SMS/MMS text messages including: appointment confirmations and reminders, service status updates, customer support responses, account notifications, and promotional offers.</p>
-            <p><strong>Message Frequency:</strong> Message frequency varies. You may receive multiple messages per week depending on your service activity and interactions with us.</p>
-            <p><strong>Message and Data Rates:</strong> Message and data rates may apply. Your mobile carrier may charge you for each text message you send or receive. Raccoon Junk Removal &amp; Demolition LLC is not responsible for any charges from your carrier.</p>
-            <p><strong>Opt-Out Instructions:</strong> You can cancel SMS messages at any time. Just text <strong>STOP</strong> to any message from us. After you send the message STOP, we will send you a reply message to confirm that you have been unsubscribed. You will no longer receive SMS messages from us unless you opt in again. If you want to join again, just sign up as you did the first time.</p>
-            <p><strong>Help:</strong> If you are experiencing issues with the messaging program, reply <strong>HELP</strong> to any message, or contact us at <a href="mailto:cleanraccoon.junkremoval@gmail.com">cleanraccoon.junkremoval@gmail.com</a> or call <a href="tel:6027552034">(602) 755-2034</a>.</p>
-            <p><strong>Privacy:</strong> Please review our <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a> for more information on how we handle your data.</p>
-          </div>
-
           <div class="optin-consent">
             <input type="checkbox" id="optinConsent" class="optin-checkbox" />
             <label for="optinConsent" class="optin-consent-text">
@@ -215,7 +232,7 @@
           <button type="submit" id="optinSubmit" class="optin-submit">Subscribe to Text Updates</button>
 
           <p class="optin-fine-print">
-            Carriers are not liable for delayed or undelivered messages. Consent to receive texts is not required to purchase any goods or services. View our <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
+            Carriers are not liable for delayed or undelivered messages. Consent to receive texts is not required to purchase any goods or services.
           </p>
         </form>
       </div>
