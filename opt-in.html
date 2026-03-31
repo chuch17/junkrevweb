@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SMS Opt-In - Clean Raccoon</title>
+    <meta property="og:title" content="SMS Opt-In - Clean Raccoon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="icon" href="./images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .optin-page {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 120px 24px 60px;
+        font-family: var(--font-family-body, "Roboto", system-ui, -apple-system, sans-serif);
+        line-height: 1.6;
+      }
+      .optin-back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-primary, #0b61b3);
+        text-decoration: none;
+      }
+      .optin-back-link:hover {
+        text-decoration: underline;
+      }
+      .optin-heading {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--color-primary, #0b61b3);
+        margin-bottom: 0.5rem;
+      }
+      .optin-subheading {
+        font-size: 1.05rem;
+        color: var(--color-on-surface-secondary, #475569);
+        margin-bottom: 2rem;
+      }
+      .optin-form {
+        background: #ffffff;
+        border: 1px solid var(--color-border, #bfc9d6);
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .optin-field {
+        margin-bottom: 1.25rem;
+      }
+      .optin-label {
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--color-on-surface, #0f1724);
+        margin-bottom: 0.4rem;
+      }
+      .optin-input {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 1rem;
+        border: 1px solid var(--color-border, #bfc9d6);
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.2s ease;
+        box-sizing: border-box;
+        font-family: inherit;
+      }
+      .optin-input:focus {
+        border-color: var(--color-primary, #0b61b3);
+        box-shadow: 0 0 0 2px rgba(11, 97, 179, 0.15);
+      }
+      .optin-consent {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .optin-checkbox {
+        width: 20px;
+        height: 20px;
+        margin-top: 3px;
+        flex-shrink: 0;
+        cursor: pointer;
+        accent-color: var(--color-primary, #0b61b3);
+      }
+      .optin-consent-text {
+        font-size: 0.85rem;
+        color: var(--color-on-surface-secondary, #475569);
+        line-height: 1.6;
+      }
+      .optin-consent-text a {
+        color: var(--color-primary, #0b61b3);
+        text-decoration: underline;
+      }
+      .optin-consent-text a:hover {
+        opacity: 0.8;
+      }
+      .optin-submit {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #ffffff;
+        background-color: var(--color-primary, #0b61b3);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, opacity 0.2s ease;
+        font-family: inherit;
+      }
+      .optin-submit:hover:not(:disabled) {
+        background-color: #094a8a;
+      }
+      .optin-submit:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .optin-fine-print {
+        margin-top: 1.25rem;
+        font-size: 0.8rem;
+        color: var(--color-on-surface-secondary, #475569);
+        line-height: 1.6;
+        text-align: center;
+      }
+      .optin-fine-print a {
+        color: var(--color-primary, #0b61b3);
+        text-decoration: underline;
+      }
+      .optin-success {
+        display: none;
+        text-align: center;
+        padding: 2rem;
+      }
+      .optin-success h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-primary, #0b61b3);
+        margin-bottom: 0.75rem;
+      }
+      .optin-success p {
+        font-size: 1rem;
+        color: var(--color-on-surface-secondary, #475569);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="optin-page">
+      <a href="./index.html" class="optin-back-link">&larr; Back to Home</a>
+
+      <h1 class="optin-heading">Stay in the Loop</h1>
+      <p class="optin-subheading">Sign up to receive text messages from Clean Raccoon about appointment updates, service notifications, and exclusive offers.</p>
+
+      <div class="optin-form" id="optinFormContainer">
+        <form id="optinForm" onsubmit="return false;">
+          <div class="optin-field">
+            <label for="optinName" class="optin-label">Full Name</label>
+            <input type="text" id="optinName" class="optin-input" placeholder="John Doe" required />
+          </div>
+
+          <div class="optin-field">
+            <label for="optinPhone" class="optin-label">Phone Number</label>
+            <input type="tel" id="optinPhone" class="optin-input" placeholder="(623) 888-1023" required />
+          </div>
+
+          <div class="optin-field">
+            <label for="optinEmail" class="optin-label">Email Address (optional)</label>
+            <input type="email" id="optinEmail" class="optin-input" placeholder="john@example.com" />
+          </div>
+
+          <div class="optin-consent">
+            <input type="checkbox" id="optinConsent" class="optin-checkbox" />
+            <label for="optinConsent" class="optin-consent-text">
+              I agree to receive SMS/MMS text messages from <strong>Raccoon Junk Removal &amp; Demolition LLC</strong> (doing business as Clean Raccoon). Messages may include appointment confirmations, service updates, customer support responses, and promotional offers. Message frequency varies. Message and data rates may apply. I understand I can reply <strong>STOP</strong> to opt out at any time or reply <strong>HELP</strong> for assistance. I have read and agree to the <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
+            </label>
+          </div>
+
+          <button type="submit" id="optinSubmit" class="optin-submit" disabled>Subscribe to Text Updates</button>
+
+          <p class="optin-fine-print">
+            By checking the box above and submitting this form, you provide your express written consent to receive recurring automated SMS/MMS messages from Raccoon Junk Removal &amp; Demolition LLC at the phone number provided. Consent is not a condition of purchase. Carriers are not liable for delayed or undelivered messages. View our <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-of-service.html" target="_blank">Terms of Service</a>.
+          </p>
+        </form>
+      </div>
+
+      <div class="optin-success" id="optinSuccess">
+        <h2>You're all set!</h2>
+        <p>Thank you for subscribing. You will now receive text updates from Clean Raccoon. Reply <strong>STOP</strong> at any time to opt out.</p>
+        <br>
+        <a href="./index.html" class="optin-back-link">&larr; Return to Home</a>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        var checkbox = document.getElementById("optinConsent");
+        var submitBtn = document.getElementById("optinSubmit");
+        var form = document.getElementById("optinForm");
+        var formContainer = document.getElementById("optinFormContainer");
+        var successMsg = document.getElementById("optinSuccess");
+
+        checkbox.addEventListener("change", function() {
+          submitBtn.disabled = !checkbox.checked;
+        });
+
+        submitBtn.addEventListener("click", function() {
+          var name = document.getElementById("optinName").value.trim();
+          var phone = document.getElementById("optinPhone").value.trim();
+
+          if (!name || !phone) {
+            alert("Please enter your name and phone number.");
+            return;
+          }
+
+          if (!checkbox.checked) {
+            alert("Please check the consent box to continue.");
+            return;
+          }
+
+          formContainer.style.display = "none";
+          successMsg.style.display = "block";
+        });
+      })();
+    </script>
+  </body>
+</html>
