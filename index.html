@@ -67,6 +67,22 @@
       rel="stylesheet"
       href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        theme: {
+          extend: {
+            colors: {
+              orange: {
+                500: "#FF8C00",
+                600: "#E07700",
+              },
+            },
+          },
+        },
+      }
+    </script>
   </head>
   <body>
     <link rel="stylesheet" href="./style.css" />
@@ -110,11 +126,13 @@
                 <div class="navigation-desktop-menu">
                   <div class="navigation-links">
                     <a href="#services">
-                      <div class="navigation-link"><span>Services</span></div>
+                      <div class="navigation-link uppercase tracking-wider font-bold font-sans text-white hover:text-orange-500 transition-colors">
+                        <span>Services</span>
+                      </div>
                     </a>
                   </div>
                   <a href="#quote">
-                    <div class="btn-sm navigation-cta btn-primary btn">
+                    <div class="btn-sm navigation-cta btn-primary btn bg-orange-500 text-white px-5 py-2 rounded-md font-bold uppercase tracking-wide hover:bg-orange-600 transition-all">
                       <span>Get a Quote</span>
                       <svg
                         width="24"
@@ -194,27 +212,27 @@
               <div class="navigation-mobile-content">
                 <div class="navigation-mobile-links">
                   <a href="index.html">
-                    <div class="navigation-mobile-link">
+                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
                       <span>Services</span>
                     </div>
                   </a>
                   <a href="index.html">
-                    <div class="navigation-mobile-link">
+                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
                       <span>Residential Removal</span>
                     </div>
                   </a>
                   <a href="index.html">
-                    <div class="navigation-mobile-link">
+                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
                       <span>Commercial Cleanout</span>
                     </div>
                   </a>
                   <a href="index.html">
-                    <div class="navigation-mobile-link">
+                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
                       <span>Pricing Plans</span>
                     </div>
                   </a>
                   <a href="index.html">
-                    <div class="navigation-mobile-link">
+                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
                       <span>About Us</span>
                     </div>
                   </a>
@@ -292,43 +310,85 @@
             </div>
           </div>
         </navigation-wrapper>
-        <section class="hero-contact">
-          <div class="hero-media-container">
-            <video
-              src="./videos/hero-video.mp4"
-              loop="true"
-              muted="true"
-              autoplay="true"
-              playsinline="true"
-              class="hero-video"
-            ></video>
-            <div class="home-thq-hero-overlay-elm hero-overlay"></div>
-          </div>
-          <div class="hero-content-wrapper">
-            <div class="hero-text-block">
-              <h1 class="hero-title">
-                Reclaim Your Space with Clean Raccoon
-                <span class="hero-brand-subtitle">Junk Removal & Demolition</span>
+        <section
+          class="hero-contact relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-neutral-950"
+        >
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="absolute top-0 left-0 w-full h-full object-cover z-0"
+            key="hero-video-final-fix"
+          >
+            <source src="videos/landfill.mp4" type="video/mp4" />
+          </video>
+          <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0.38)_58%,rgba(0,0,0,0.95)_100%)] z-10 pointer-events-none"
+          ></div>
+
+          <div
+            class="relative z-20 container mx-auto px-6 text-center max-w-5xl pt-12 flex flex-col items-center justify-center"
+          >
+            <div
+              class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-2 w-full"
+            >
+              <div
+                class="flex-shrink-0 drop-shadow-[0_4px_25px_rgba(249,115,22,0.65)] md:-mr-8 relative z-30"
+              >
+                <img
+                  src="images/logo.png"
+                  alt="Clean Raccoon Logo"
+                  class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 object-scale-down"
+                />
+              </div>
+              <h1
+                class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-normal uppercase text-white text-center md:text-left relative z-20"
+                style="text-shadow: 4px 4px 0px #f97316, 6px 6px 0px rgba(0, 0, 0, 0.9);"
+              >
+                Clean Raccoon
               </h1>
-              <p class="hero-subtitle">
-                Professional residential and commercial property cleanouts. We
-                haul away the stress so you can enjoy a clutter-free
-                environment.
-              </p>
-              <div class="home-thq-hero-cta-group-elm hero-cta-group"></div>
             </div>
-            <div class="hero-form-container">
-              <div class="form-card">
+            <p
+              class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold tracking-wide uppercase text-white mb-3 text-center"
+              style="text-shadow: 3px 3px 0px #f97316, 5px 5px 0px rgba(0, 0, 0, 0.9);"
+            >
+              Junk Removal & Demolition
+            </p>
+            <p
+              class="text-zinc-100 text-lg sm:text-xl md:text-2xl max-w-2xl font-semibold tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-relaxed text-center mb-6"
+            >
+              We haul away the stress so you can enjoy a clutter free
+              environment.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full"
+            >
+              <div class="hero-form-container flex justify-center w-full">
+                <div
+                  class="form-card bg-zinc-900 text-white p-8 rounded-xl border-2 border-orange-500 shadow-2xl max-w-md w-full text-left"
+                >
                 <h3 class="section-subtitle">Quick quote</h3>
                 <div class="quick-contact-form">
-                  <a href="sms:6238881023?body=Hi%20Raccoon%20Team%2C%20I%27d%20like%20a%20quote%20for%20my%20junk%20removal.%20I%27ll%20send%20over%20the%20photos%20shortly." class="btn btn-lg btn-accent">
+                  <a
+                    href="sms:6238881023?body=Hi%20Raccoon%20Team%2C%20I%27d%20like%20a%20quote%20for%20my%20junk%20removal.%20I%27ll%20send%20over%20the%20photos%20shortly."
+                    class="btn btn-lg btn-accent"
+                  >
                     Text A Photo Now
                   </a>
-                  <span>Snap a Photo, Get an Estimate , It's that Simple</span>
+                  <span
+                    >Snap a Photo, Get an Estimate , It's that Simple</span
+                  >
+                </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div
+            class="absolute bottom-0 left-0 w-full h-[4px] bg-[#f97316] z-30 shadow-[0_0_15px_rgba(249,115,22,0.5)]"
+          ></div>
         </section>
         <section id="services" class="home-thq-services-snapshot-elm services-snapshot">
           <div class="container-inner">
@@ -405,22 +465,54 @@
               </div>
             </div>
           </div>
+          <div
+            class="w-full h-[4px] bg-[#f97316] shadow-[0_0_15px_rgba(249,115,22,0.3)]"
+          ></div>
         </section>
         <div class="home-container11">
           <section class="home-thq-process-steps-elm process-steps">
-            <div class="container-inner">
-              <div class="section-header">
-                <h2 class="section-title">How It Works</h2>
-                <p class="section-content">
-                  Our streamlined process makes clearing your property as easy
-                  as 1-2-3.
-                </p>
-              </div>
-              <div class="process-horizontal">
-                <div class="step-item">
-                  <div class="step-number"><span>1</span></div>
-                  <div class="home-thq-step-visual-elm1 step-visual">
-                    <div>
+            <div class="w-full py-20 bg-white text-zinc-900">
+              <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center uppercase tracking-tight mb-12">
+                  How It Works
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div class="bg-zinc-50 p-8 rounded-xl border-t-4 border-orange-500 shadow-sm flex flex-col gap-4">
+                    <span class="text-4xl font-extrabold text-orange-500">01</span>
+                    <div class="home-thq-step-visual-elm1 step-visual mx-auto">
+                      <div>
+                        <svg
+                          fill="none"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="24"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <rect
+                            x="5"
+                            y="2"
+                            rx="2"
+                            ry="2"
+                            width="14"
+                            height="20"
+                          ></rect>
+                          <path d="M12 18h.01"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 class="section-subtitle">Text Info</h3>
+                    <p class="section-content">
+                      snap a picture and send us the location. Our team will get
+                      back to you with a free estimate.
+                    </p>
+                  </div>
+                  <div class="bg-zinc-50 p-8 rounded-xl border-t-4 border-orange-500 shadow-sm flex flex-col gap-4">
+                    <span class="text-4xl font-extrabold text-orange-500">02</span>
+                    <div class="step-visual mx-auto">
                       <svg
                         fill="none"
                         width="24"
@@ -432,133 +524,77 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       >
-                        <rect
-                          x="5"
-                          y="2"
-                          rx="2"
-                          ry="2"
-                          width="14"
-                          height="20"
-                        ></rect>
-                        <path d="M12 18h.01"></path>
+                        <path
+                          d="M20.42 4.58a5 5 0 0 0-7.07 0l-1.35 1.35a5 5 0 0 0 0 7.07l1.35 1.35a5 5 0 0 0 7.07 0l1.35-1.35a5 5 0 0 0 0-7.07z"
+                        ></path>
+                        <path
+                          d="M11.58 19.42a5 5 0 0 1-7.07 0l-1.35-1.35a5 5 0 0 1 0-7.07l1.35-1.35a5 5 0 0 1 7.07 0l1.35 1.35a5 5 0 0 1 0 7.07z"
+                        ></path>
+                        <line x1="9.5" x2="14.5" y1="14.5" y2="9.5"></line>
                       </svg>
                     </div>
+                    <h3 class="section-subtitle">Haul-Away</h3>
+                    <p class="section-content">
+                      Our professional team arrives, provides a final quote, and
+                      begins the heavy lifting immediately.
+                    </p>
                   </div>
-                  <h3 class="section-subtitle">Text Info</h3>
-                  <p class="section-content">
-                    snap a picture and send us the location. Our team will get
-                    back to you with a free estimate.
-                  </p>
-                </div>
-                <div class="step-item">
-                  <div class="step-number"><span>2</span></div>
-                  <div class="step-visual">
-                    <svg
-                      fill="none"
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="24"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path
-                        d="M20.42 4.58a5 5 0 0 0-7.07 0l-1.35 1.35a5 5 0 0 0 0 7.07l1.35 1.35a5 5 0 0 0 7.07 0l1.35-1.35a5 5 0 0 0 0-7.07z"
-                      ></path>
-                      <path
-                        d="M11.58 19.42a5 5 0 0 1-7.07 0l-1.35-1.35a5 5 0 0 1 0-7.07l1.35-1.35a5 5 0 0 1 7.07 0l1.35 1.35a5 5 0 0 1 0 7.07z"
-                      ></path>
-                      <line x1="9.5" x2="14.5" y1="14.5" y2="9.5"></line>
-                    </svg>
+                  <div class="bg-zinc-50 p-8 rounded-xl border-t-4 border-orange-500 shadow-sm flex flex-col gap-4">
+                    <span class="text-4xl font-extrabold text-orange-500">03</span>
+                    <div class="step-visual mx-auto">
+                      <svg
+                        fill="none"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <h3 class="section-subtitle">Clean Finish</h3>
+                    <p class="section-content">
+                      We sweep up the area and responsibly dispose of or recycle
+                      your items. You're all set!
+                    </p>
                   </div>
-                  <h3 class="section-subtitle">Haul-Away</h3>
-                  <p class="section-content">
-                    Our professional team arrives, provides a final quote, and
-                    begins the heavy lifting immediately.
-                  </p>
-                </div>
-                <div class="step-item">
-                  <div class="step-number"><span>3</span></div>
-                  <div class="step-visual">
-                    <svg
-                      fill="none"
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="24"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <h3 class="section-subtitle">Clean Finish</h3>
-                  <p class="section-content">
-                    We sweep up the area and responsibly dispose of or recycle
-                    your items. You're all set!
-                  </p>
                 </div>
               </div>
             </div>
-            <work-showcase-wrapper class="work-showcase-wrapper">
-              <!--WorkShowcase component-->
-              <div class="work-showcase-container1">
-                <section
-                  aria-labelledby="work-showcase-title"
-                  class="work-showcase"
+            <div
+              class="w-full bg-neutral-900 py-16 px-4 flex flex-col items-center justify-center relative"
+            >
+              <div class="text-center mb-10 max-w-2xl">
+                <h2
+                  class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight mb-2"
                 >
-                  <div class="work-showcase-container">
-                    <div class="work-showcase-header">
-                      <h2 id="work-showcase-title" class="section-title">
-                        Experience our Results
-                      </h2>
-                      <p class="section-content">
-                        Watch how we transform cluttered spaces into pristine
-                        properties. From residential junk removal to large-scale
-                        commercial cleanouts, our professional team handles it
-                        all with efficiency and care.
-                      </p>
-                    </div>
-                    <div class="work-showcase-video-wrapper">
-                      <div
-                        id="playerContainer"
-                        class="work-showcase-player-container"
-                      >
-                        <iframe
-                          width="100%"
-                          height="100%"
-                          src="https://www.youtube.com/embed/rnzjxTWNP1Y?rel=0"
-                          title="YouTube video player"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen
-                          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--border-radius-xl);"
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <div class="work-showcase-container2">
-                  <div class="work-showcase-container3">
-                    <style>
-                      @media (prefers-reduced-motion: reduce) {
-                      .work-showcase-play-btn, .work-showcase-controls, .work-showcase-overlay {
-                        transition: none;
-                      }
-                      }
-                    </style>
-                  </div>
-                </div>
-                <div class="work-showcase-container4">
-                  <div class="work-showcase-container5">
-                  </div>
-                </div>
+                  See Us In Action
+                </h2>
+                <p class="text-neutral-400 text-base md:text-lg font-medium">
+                  Check out our latest commercial ad and see how the team handles
+                  cleanouts with top-tier equipment.
+                </p>
               </div>
-            </work-showcase-wrapper>
+              <div
+                class="w-full max-w-sm sm:max-w-md aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-2xl border-2 border-neutral-800 relative z-20"
+              >
+                <iframe
+                  class="w-full h-full"
+                  src="https://www.youtube.com/embed/jtj7rvP0aJY?autoplay=0&loop=1&playlist=jtj7rvP0aJY"
+                  title="Clean Raccoon Junk Removal Ad"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div
+                class="absolute bottom-0 left-0 w-full h-[4px] bg-[#f97316] z-30 shadow-[0_0_15px_rgba(249,115,22,0.3)]"
+              ></div>
+            </div>
           </section>
           <section id="quote" class="quote-instruction-section">
             <div class="content-wrapper">
@@ -711,69 +747,39 @@
                         </div>
                       </div>
                     </div>
-                    <div class="review-meta">
-                      <div class="rating-stars">
-                        <svg
-                          fill="currentColor"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="16"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                          ></path></svg
-                        ><svg
-                          fill="currentColor"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="16"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                          ></path></svg
-                        ><svg
-                          fill="currentColor"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="16"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                          ></path></svg
-                        ><svg
-                          fill="currentColor"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="16"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                          ></path></svg
-                        ><svg
-                          fill="currentColor"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="16"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                          ></path>
-                        </svg>
-                      </div>
-                      <p class="home-section-content section-content">
-                        "Texted a photo of my garage mess at 9 AM, got a quote
+                    <div
+                      class="review-meta bg-neutral-900 p-6 sm:p-8 rounded-2xl border border-neutral-800 shadow-xl transition-all duration-300"
+                    >
+                      <p
+                        class="text-white text-base md:text-lg font-medium leading-relaxed italic mb-6"
+                      >
+                        "Sent a photo of my garage mess at 9:00 AM, got a quote
                         by 9:15, and the truck was here by noon. Unbelievable
                         service!"
                       </p>
-                      <span class="customer-name">
-                        — Sarah Jenkins, Homeowner
-                      </span>
+                      <div
+                        class="flex items-center justify-between border-t border-neutral-800/60 pt-4 w-full"
+                      >
+                        <div class="flex flex-col text-left">
+                          <span
+                            class="font-black text-[#f97316] uppercase tracking-wider text-sm"
+                          >
+                            Sarah Jenkins
+                          </span>
+                          <span
+                            class="text-xs text-neutral-400 font-medium mt-0.5"
+                          >
+                            Phoenix, AZ
+                          </span>
+                        </div>
+                        <span
+                          class="text-[10px] md:text-xs bg-orange-500/10 text-[#f97316] border border-orange-500/20 font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                        >
+                          Verified Review
+                        </span>
+                      </div>
                     </div>
+
                   </div>
                   <div class="secondary-video-grid">
                     <div class="mini-video-card">
@@ -832,6 +838,9 @@
               </div>
             </div>
           </section>
+          <div
+            class="w-full h-[4px] bg-[#f97316] shadow-[0_0_15px_rgba(249,115,22,0.3)]"
+          ></div>
         </div>
         <section class="service-areas">
           <div class="container-inner">
@@ -994,6 +1003,9 @@
               </div>
             </div>
           </div>
+          <div
+            class="w-full h-[4px] bg-[#f97316] shadow-[0_0_15px_rgba(249,115,22,0.3)]"
+          ></div>
         </section>
         <div class="home-container13">
           <div class="home-container14">
@@ -1001,12 +1013,22 @@
               document.addEventListener('DOMContentLoaded', function() {
                 (function(){
                   const heroSection = document.querySelector(".hero-contact")
-                  const heroMedia = document.querySelector(".hero-media-container")
+                  const heroVideo = heroSection && heroSection.querySelector("video")
+
+                  if (heroVideo) {
+                    try {
+                      heroVideo.load()
+                      var playPromise = heroVideo.play()
+                      if (playPromise && typeof playPromise.catch === "function") {
+                        playPromise.catch(function () {})
+                      }
+                    } catch (e) {}
+                  }
 
                   window.addEventListener("scroll", () => {
                     const scrollPos = window.pageYOffset
-                    if (scrollPos < window.innerHeight) {
-                      heroMedia.style.transform = `translateY(${scrollPos * 0.3}px)`
+                    if (heroVideo && scrollPos < window.innerHeight) {
+                      heroVideo.style.transform = `translateY(${scrollPos * 0.3}px)`
                     }
                   })
 
@@ -1212,40 +1234,31 @@
                           </div>
                         </a>
                       </div>
-                      <div class="footer-contact-item">
-                        <div class="footer-contact-icon">
-                          <svg
-                            width="24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="24"
-                            viewBox="0 0 24 24"
-                          >
-                            <g
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path
-                                d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
-                              ></path>
-                              <rect
-                                x="2"
-                                y="4"
-                                rx="2"
-                                width="20"
-                                height="16"
-                              ></rect>
-                            </g>
-                          </svg>
-                        </div>
-                        <a href="mailto:hello@clearnest.com?subject=">
-                          <div
-                            class="footer-thq-footer-link-elm5 footer-link"
-                          ></div>
+                      <div
+                        class="footer-contact-item flex items-center gap-3 text-neutral-400 hover:text-white transition-colors duration-200"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 text-[#f97316] flex-shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          />
+                        </svg>
+                        <a
+                          href="mailto:cleanraccoon.junkremoval@gmail.com"
+                          class="text-sm font-medium tracking-wide break-all"
+                        >
+                          cleanraccoon.junkremoval@gmail.com
                         </a>
                       </div>
+
                     </div>
                   </div>
                 </div>

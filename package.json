@@ -9,6 +9,11 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "scripts": {},
-  "devDependencies": {}
+  "scripts": {
+    "dev": "serve . -l 3000",
+    "preview": "serve . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
 }
