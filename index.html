@@ -318,20 +318,30 @@
             loop
             muted
             playsinline
-            class="absolute top-0 left-0 w-full h-full object-cover z-0"
-            key="hero-video-final-fix"
+            class="hidden md:block absolute top-0 left-0 w-full h-full object-cover z-0"
+            key="hero-video-desktop"
           >
             <source src="videos/landfill.mp4" type="video/mp4" />
           </video>
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="block md:hidden absolute top-0 left-0 w-full h-full object-cover z-0"
+            key="hero-video-mobile-action"
+          >
+            <source src="videos/mobile-dumpster.mp4" type="video/mp4" />
+          </video>
           <div
-            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0.38)_58%,rgba(0,0,0,0.95)_100%)] z-10 pointer-events-none"
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0.35)_50%,rgba(0,0,0,0.95)_100%)] md:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0.38)_58%,rgba(0,0,0,0.95)_100%)] z-10 pointer-events-none"
           ></div>
 
           <div
-            class="relative z-20 container mx-auto px-6 text-center max-w-5xl pt-12 flex flex-col items-center justify-center"
+            class="relative z-20 container mx-auto px-4 sm:px-6 text-center max-w-5xl pt-6 md:pt-12 flex flex-col items-center justify-center"
           >
             <div
-              class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-2 w-full"
+              class="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-4 mb-2 w-full"
             >
               <div
                 class="flex-shrink-0 drop-shadow-[0_4px_25px_rgba(249,115,22,0.65)] md:-mr-8 relative z-30"
@@ -339,31 +349,29 @@
                 <img
                   src="images/logo.png"
                   alt="Clean Raccoon Logo"
-                  class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 object-scale-down"
+                  class="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-52 lg:h-52 object-scale-down"
                 />
               </div>
               <h1
-                class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-normal uppercase text-white text-center md:text-left relative z-20"
-                style="text-shadow: 4px 4px 0px #f97316, 6px 6px 0px rgba(0, 0, 0, 0.9);"
+                class="hero-title-shadow text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-normal uppercase text-white text-center md:text-left relative z-20"
               >
                 Clean Raccoon
               </h1>
             </div>
             <p
-              class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold tracking-wide uppercase text-white mb-3 text-center"
-              style="text-shadow: 3px 3px 0px #f97316, 5px 5px 0px rgba(0, 0, 0, 0.9);"
+              class="hero-subtitle-shadow text-base sm:text-lg md:text-2xl lg:text-3xl font-extrabold tracking-wide uppercase text-white mb-2 md:mb-3 text-center px-2"
             >
               Junk Removal & Demolition
             </p>
             <p
-              class="text-zinc-100 text-lg sm:text-xl md:text-2xl max-w-2xl font-semibold tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-relaxed text-center mb-6"
+              class="text-zinc-100 text-sm sm:text-base md:text-2xl max-w-md md:max-w-2xl font-semibold tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-relaxed text-center mb-6 px-4"
             >
               We haul away the stress so you can enjoy a clutter free
               environment.
             </p>
 
             <div
-              class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full"
+              class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full max-w-xs sm:max-w-none px-4"
             >
               <div class="hero-form-container flex justify-center w-full">
                 <div
@@ -1013,9 +1021,11 @@
               document.addEventListener('DOMContentLoaded', function() {
                 (function(){
                   const heroSection = document.querySelector(".hero-contact")
-                  const heroVideo = heroSection && heroSection.querySelector("video")
+                  const heroVideos = heroSection
+                    ? heroSection.querySelectorAll("video")
+                    : []
 
-                  if (heroVideo) {
+                  heroVideos.forEach(function (heroVideo) {
                     try {
                       heroVideo.load()
                       var playPromise = heroVideo.play()
@@ -1023,12 +1033,14 @@
                         playPromise.catch(function () {})
                       }
                     } catch (e) {}
-                  }
+                  })
 
                   window.addEventListener("scroll", () => {
                     const scrollPos = window.pageYOffset
-                    if (heroVideo && scrollPos < window.innerHeight) {
-                      heroVideo.style.transform = `translateY(${scrollPos * 0.3}px)`
+                    if (scrollPos < window.innerHeight) {
+                      heroVideos.forEach(function (heroVideo) {
+                        heroVideo.style.transform = `translateY(${scrollPos * 0.3}px)`
+                      })
                     }
                   })
 

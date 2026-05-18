@@ -1204,6 +1204,24 @@
   background-color: transparent;
 }
 
+.hero-title-shadow {
+  text-shadow: 3px 3px 0px #f97316, 5px 5px 0px rgba(0, 0, 0, 0.9);
+}
+
+.hero-subtitle-shadow {
+  text-shadow: 2px 2px 0px #f97316, 4px 4px 0px rgba(0, 0, 0, 0.9);
+}
+
+@media (min-width: 768px) {
+  .hero-title-shadow {
+    text-shadow: 4px 4px 0px #f97316, 6px 6px 0px rgba(0, 0, 0, 0.9);
+  }
+
+  .hero-subtitle-shadow {
+    text-shadow: 3px 3px 0px #f97316, 5px 5px 0px rgba(0, 0, 0, 0.9);
+  }
+}
+
 .hero-media-container {
   top: 0;
   left: 0;
