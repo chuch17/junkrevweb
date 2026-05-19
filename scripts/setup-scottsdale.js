@@ -8,11 +8,6 @@ const stylePath = path.join(root, "style.css");
 const outDir = path.join(root, "locations", "scottsdale-az");
 const outPath = path.join(outDir, "index.html");
 
-const SCOTTSDALE_LINE = `                  <p class="hero-title-shadow text-base sm:text-lg md:text-2xl lg:text-3xl font-black tracking-normal uppercase text-white text-center mt-4 px-2">
-                    Serving Scottsdale, Arizona
-                  </p>
-`;
-
 function desktopLocationsNav(scottsdaleHref, homeHref) {
   return `
                     <details class="nav-locations-dropdown">
@@ -65,7 +60,12 @@ function addScottsdaleSubtitle(html) {
   if (html.includes("Serving Scottsdale, Arizona")) {
     return html;
   }
-  return html.replace(/(>\s*Text A Photo Now\s*<\/a>)/, `$1\n${SCOTTSDALE_LINE}`);
+  const tag =
+    '\n            <p class="hero-title-shadow text-base sm:text-lg md:text-2xl lg:text-3xl font-black tracking-normal uppercase text-white text-center mx-auto w-full block mt-6 px-2">\n              Serving Scottsdale, Arizona\n            </p>\n';
+  const marker =
+    '          </div>\n\n          <motion\n            class="absolute bottom-0 left-0 w-full h-[4px] bg-[#f97316] z-30 shadow-[0_0_15px_rgba(249,115,22,0.5)]"';
+  const markerDiv = marker.replace(/motion/g, "motion").replace(/motion/g, "motion");
+  return html.replace(marker.replace(/motion/g, "div"), tag + marker.replace(/motion/g, "motion"));
 }
 
 function scottsdaleFooterPhone(html) {
