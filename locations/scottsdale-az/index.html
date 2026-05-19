@@ -130,16 +130,16 @@
                         <span>Services</span>
                       </div>
                     </a>
-                    <details class="nav-locations-dropdown">
-                      <summary class="navigation-link uppercase tracking-wider font-bold font-sans text-white hover:text-orange-500 transition-colors cursor-pointer list-none flex items-center gap-1">
+                    <div class="nav-locations-dropdown" data-locations-nav>
+                      <button type="button" class="nav-locations-trigger navigation-link uppercase tracking-wider font-bold font-sans text-white hover:text-orange-500 transition-colors cursor-pointer flex items-center gap-1" data-locations-trigger aria-expanded="false" aria-haspopup="true">
                         <span>Locations</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
-                      </summary>
-                      <div class="nav-locations-menu">
-                        <a href="./" class="nav-locations-menu-link">Scottsdale, Arizona</a>
-                        <a href="../../index.html" class="nav-locations-menu-link">Homepage</a>
+                      </button>
+                      <div class="nav-locations-menu" data-locations-menu>
+                        <a href="locations/scottsdale-az/" class="nav-locations-menu-link">Scottsdale, Arizona</a>
+                        <a href="/" class="nav-locations-menu-link">Homepage</a>
                       </div>
-                    </details>
+                    </div>
 
                   </div>
                   <a href="../../index.html#quote">
@@ -222,16 +222,16 @@
               </div>
               <div class="navigation-mobile-content">
                 <div class="navigation-mobile-links">
-                  <details class="nav-locations-dropdown nav-locations-dropdown--mobile">
-                    <summary class="navigation-mobile-link uppercase tracking-wider font-bold font-sans text-white cursor-pointer list-none flex items-center justify-between py-2">
+                  <div class="nav-locations-dropdown nav-locations-dropdown--mobile" data-locations-nav>
+                    <button type="button" class="nav-locations-trigger navigation-mobile-link uppercase tracking-wider font-bold font-sans text-white cursor-pointer flex items-center justify-between py-2 w-full text-left" data-locations-trigger aria-expanded="false" aria-haspopup="true">
                       <span>Locations</span>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <div class="nav-locations-menu nav-locations-menu--mobile">
-                      <a href="./" class="nav-locations-menu-link navigation-mobile-link">Scottsdale, Arizona</a>
-                      <a href="../../index.html" class="nav-locations-menu-link navigation-mobile-link">Homepage</a>
+                    </button>
+                    <div class="nav-locations-menu nav-locations-menu--mobile" data-locations-menu>
+                      <a href="locations/scottsdale-az/" class="nav-locations-menu-link navigation-mobile-link">Scottsdale, Arizona</a>
+                      <a href="/" class="nav-locations-menu-link navigation-mobile-link">Homepage</a>
                     </div>
-                  </details>
+                  </div>
 
                   <a href="../../index.html">
                     <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
@@ -1451,5 +1451,6 @@
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
       data-widget-id="69c457b0f605723efd9dcecb">
     </script>
+      <script src="../../scripts/locations-nav.js" defer></script>
   </body>
 </html>
