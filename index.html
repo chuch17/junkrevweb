@@ -107,74 +107,68 @@
                 </style>
               </div>
             </div>
-            <nav class="navigation-root">
-              <div class="navigation-container">
-                <a href="index.html">
-                  <div
-                    aria-label="ClearNest - Back to Homepage"
-                    class="navigation-brand"
-                  >
-                    <div class="navigation-logo-icon">
-                      <img src="./images/logo-white.png" alt="Clean Raccoon Logo" class="nav-logo-img" />
-                    </div>
-                    <div class="brand-text-container">
-                  <span class="section-title">Clean Raccoon</span>
-                  <span class="brand-subtitle">Junk Removal & Demolition</span>
-                </div>
-                  </div>
-                </a>
-                <div class="navigation-desktop-menu">
-                  <div class="navigation-links">
-                    <a href="#services">
-                      <div class="navigation-link uppercase tracking-wider font-bold font-sans text-white hover:text-orange-500 transition-colors">
-                        <span>Services</span>
+                        <nav
+              class="navigation-root relative z-50 w-full bg-neutral-950/90 backdrop-blur-md border-b border-zinc-800"
+            >
+               <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+
+                  <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-3">
+                      <img
+                        src="./images/logo-white.png"
+                        alt="Clean Raccoon Logo"
+                        class="h-14 w-auto object-contain"
+                      />
+                      <div class="hidden sm:flex flex-col leading-tight">
+                        <span class="text-white font-bold uppercase tracking-wide text-sm">Clean Raccoon</span>
+                        <span class="text-zinc-400 font-semibold uppercase text-[10px] tracking-wider">Junk Removal &amp; Demolition</span>
                       </div>
                     </a>
                   </div>
-                  <a href="#quote">
-                    <div class="btn-sm navigation-cta btn-primary btn bg-orange-500 text-white px-5 py-2 rounded-md font-bold uppercase tracking-wide hover:bg-orange-600 transition-all">
-                      <span>Get a Quote</span>
-                      <svg
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24"
-                        viewBox="0 0 24 24"
+
+                  <div class="hidden md:flex items-center space-x-6">
+                    <div class="relative group">
+                      <button
+                        type="button"
+                        class="flex items-center gap-1 text-white hover:text-[#f97316] font-bold uppercase text-sm tracking-wider transition-colors duration-200 focus:outline-none"
+                        aria-haspopup="true"
                       >
-                        <path
-                          d="M5 12h14m-7-7l7 7l-7 7"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        ></path>
-                      </svg>
+                        Locations
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                      </button>
+                      <div class="absolute left-0 mt-2 w-56 rounded-md shadow-2xl bg-neutral-900 border border-zinc-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
+                        <div class="py-1" role="menu" aria-orientation="vertical">
+              <a href="locations/phoenix-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Phoenix, AZ</a>
+              <a href="locations/scottsdale-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Scottsdale, AZ</a>
+              <a href="locations/peoria-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Peoria, AZ</a>
+              <a href="locations/glendale-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Glendale, AZ</a>
+              <a href="locations/mesa-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Mesa, AZ</a>
+              <a href="locations/tempe-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Tempe, AZ</a>
+              <a href="locations/gilbert-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Gilbert, AZ</a>
+              <a href="locations/chandler-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Chandler, AZ</a>
+                        </div>
+                      </div>
                     </div>
-                  </a>
-                </div>
-                <button
-                  id="navToggle"
-                  aria-label="Open Menu"
-                  aria-controls="mobileOverlay"
-                  aria-expanded="false"
-                  class="navigation-mobile-toggle"
-                >
-                  <svg
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24"
-                    viewBox="0 0 24 24"
+
+                    <a href="#services" class="text-white hover:text-[#f97316] font-bold uppercase text-sm tracking-wider transition-colors duration-200">Services</a>
+
+                    <a href="#quote" class="btn-sm navigation-cta btn-primary btn bg-orange-500 text-white px-5 py-2 rounded-md font-bold uppercase tracking-wide hover:bg-orange-600 transition-all inline-flex items-center gap-1">
+                      <span>Get a Quote</span>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"></path></svg>
+                    </a>
+                  </div>
+
+                  <button
+                    id="navToggle"
+                    aria-label="Open Menu"
+                    aria-controls="mobileOverlay"
+                    aria-expanded="false"
+                    class="navigation-mobile-toggle md:!hidden flex text-white hover:text-[#f97316] p-2"
                   >
-                    <path
-                      d="M4 6h16M4 12h16M4 18h16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </button>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                  </button>
+                </div>
               </div>
             </nav>
             <div id="mobileOverlay" class="navigation-mobile-overlay">
@@ -184,7 +178,7 @@
                     <div class="navigation-logo-icon">
                       <img src="./images/logo-white.png" alt="Clean Raccoon Logo" class="nav-logo-img" />
                     </div>
-                    <span class="section-title">ClearNest</span>
+                    <span class="section-title">Clean Raccoon</span>
                   </div>
                 </a>
                 <button
@@ -210,37 +204,33 @@
                 </button>
               </div>
               <div class="navigation-mobile-content">
-                <div class="navigation-mobile-links">
-                  <a href="index.html">
+                                <div class="navigation-mobile-links">
+                  <details class="w-full border-b border-zinc-800 pb-3 mb-3 group">
+                    <summary class="navigation-mobile-link uppercase tracking-wider font-bold font-sans text-white hover:text-[#f97316] transition-colors cursor-pointer list-none flex items-center justify-between py-2">
+                      <span>Locations</span>
+                      <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <div class="pl-2 pt-2 flex flex-col max-h-[50vh] overflow-y-auto">
+                      <a href="locations/phoenix-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Phoenix, AZ</a>
+                      <a href="locations/scottsdale-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Scottsdale, AZ</a>
+                      <a href="locations/peoria-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Peoria, AZ</a>
+                      <a href="locations/glendale-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Glendale, AZ</a>
+                      <a href="locations/mesa-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Mesa, AZ</a>
+                      <a href="locations/tempe-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Tempe, AZ</a>
+                      <a href="locations/gilbert-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Gilbert, AZ</a>
+                      <a href="locations/chandler-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Chandler, AZ</a>
+                    </div>
+                  </details>
+                  <a href="#services">
                     <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
                       <span>Services</span>
                     </div>
                   </a>
-                  <a href="index.html">
-                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
-                      <span>Residential Removal</span>
-                    </div>
-                  </a>
-                  <a href="index.html">
-                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
-                      <span>Commercial Cleanout</span>
-                    </div>
-                  </a>
-                  <a href="index.html">
-                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
-                      <span>Pricing Plans</span>
-                    </div>
-                  </a>
-                  <a href="index.html">
-                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
-                      <span>About Us</span>
-                    </div>
-                  </a>
                 </div>
                 <div class="navigation-mobile-footer">
-                  <a href="index.html">
+                  <a href="#quote">
                     <div class="navigation-mobile-cta btn-primary btn btn-lg">
-                      <span>Book Your Free Estimate</span>
+                      <span>Get a Quote</span>
                     </div>
                   </a>
                 </div>

@@ -790,6 +790,10 @@
   transition: background-color 0.2s ease;
   border-radius: var(--border-radius-sm);
 }
+
+.navigation-mobile-links details summary::-webkit-details-marker {
+  display: none;
+}
  
 .navigation-logo-icon {
   color: var(--color-primary);
