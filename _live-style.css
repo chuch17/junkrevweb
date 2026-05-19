@@ -1043,10 +1043,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
-.footer-bottom-content .footer-scottsdale-tag {
-  flex: 1 1 100%;
-}
  
 .footer-logo-wrapper {
   gap: var(--spacing-md);
@@ -1082,14 +1078,6 @@
   flex-direction: column;
 }
  
-.footer-scottsdale-tag {
-  display: block;
-  width: 100%;
-  margin: 0 auto var(--spacing-md);
-  text-align: center;
-  color: #ffffff;
-}
-
 .footer-copyright {
   color: rgba(255, 255, 255, 0.65);
   font-size: 1rem;
@@ -2507,28 +2495,27 @@
     height: 48px;
   }
   .review-cta-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: var(--spacing-2xl);
-    gap: var(--spacing-lg);
-  }
-
-  .review-cta-container .review-cta-text {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #ffffff !important;
-    line-height: 1.2;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .review-cta-btn {
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: var(--spacing-2xl);
+  gap: var(--spacing-lg);
 }
 
-/* Locations dropdown — must be global (not inside a max-width media query) */
+.review-cta-container .review-cta-text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+
+.review-cta-btn {
+  width: 100%;
+}
+
+/* Locations dropdown */
 .navigation-root,
 .navigation-container,
 .navigation-desktop-menu,
@@ -2547,24 +2534,9 @@
   background: transparent;
   padding: 0;
   margin: 0;
-  cursor: pointer;
+  font: inherit;
+  color: inherit;
   -webkit-tap-highlight-color: transparent;
-}
-
-button.nav-locations-trigger.navigation-link {
-  color: #ffffff;
-  transition: color 0.2s ease;
-}
-
-button.nav-locations-trigger.navigation-link:hover,
-button.nav-locations-trigger.navigation-link:focus-visible {
-  color: #f97316;
-}
-
-button.nav-locations-trigger.navigation-link:hover::after,
-button.nav-locations-trigger.navigation-link:focus-visible::after {
-  width: 100%;
-  background-color: #f97316;
 }
 
 .nav-locations-menu {
@@ -2592,22 +2564,19 @@ button.nav-locations-trigger.navigation-link:focus-visible::after {
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
-  position: absolute !important;
-  z-index: 9999 !important;
 }
 
-button.nav-locations-trigger.navigation-mobile-link {
+.nav-locations-trigger--mobile {
   color: var(--color-on-surface);
   font-size: var(--font-size-2xl);
   transition: transform 0.3s ease, color 0.3s ease;
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-heading);
   text-decoration: none;
-  width: 100%;
 }
 
-button.nav-locations-trigger.navigation-mobile-link:hover {
-  color: #f97316;
+.nav-locations-trigger--mobile:hover {
+  color: #ff8c00;
   transform: translateX(10px);
 }
 
@@ -2639,4 +2608,9 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
   background: #f97316;
   color: #fff;
   text-decoration: none !important;
+}
+
+.navigation-root {
+  position: relative;
+  z-index: 1000;
 }
