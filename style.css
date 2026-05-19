@@ -791,8 +791,23 @@
   border-radius: var(--border-radius-sm);
 }
 
-.navigation-mobile-links details summary::-webkit-details-marker {
+.navigation-mobile-links details summary::-webkit-details-marker,
+.navigation-root .nav-locations-dropdown summary::-webkit-details-marker {
   display: none;
+}
+
+.navigation-root a,
+.navigation-root summary {
+  text-decoration: none;
+}
+
+.navigation-root a:hover,
+.navigation-root a:focus {
+  text-decoration: none;
+}
+
+.navigation-mobile-overlay a {
+  text-decoration: none;
 }
  
 .navigation-logo-icon {

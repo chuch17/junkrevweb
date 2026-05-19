@@ -107,53 +107,37 @@
                 </style>
               </div>
             </div>
-                        <nav
-              class="navigation-root relative z-50 w-full bg-neutral-950/90 backdrop-blur-md border-b border-zinc-800"
-            >
-               <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                    <nav class="navigation-root relative z-50 w-full bg-neutral-950/90 backdrop-blur-md border-b border-zinc-800 font-sans">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
 
                   <div class="flex-shrink-0">
-                    <a href="index.html" class="flex items-center gap-3">
-                      <img
-                        src="./images/logo-white.png"
-                        alt="Clean Raccoon Logo"
-                        class="h-14 w-auto object-contain"
-                      />
-                      <div class="hidden sm:flex flex-col leading-tight">
-                        <span class="text-white font-bold uppercase tracking-wide text-sm">Clean Raccoon</span>
-                        <span class="text-zinc-400 font-semibold uppercase text-[10px] tracking-wider">Junk Removal &amp; Demolition</span>
-                      </div>
+                    <a href="index.html" class="flex items-center no-underline decoration-transparent">
+                      <img src="./images/logo-white.png" alt="Clean Raccoon Logo" class="h-14 w-auto object-contain" />
                     </a>
                   </div>
 
                   <div class="hidden md:flex items-center space-x-6">
-                    <div class="relative group">
-                      <button
-                        type="button"
-                        class="flex items-center gap-1 text-white hover:text-[#f97316] font-bold uppercase text-sm tracking-wider transition-colors duration-200 focus:outline-none"
-                        aria-haspopup="true"
-                      >
+                    <details class="nav-locations-dropdown relative inline-block text-left group select-none">
+                      <summary class="flex items-center gap-1 text-white hover:text-[#f97316] font-black uppercase text-sm tracking-wider list-none cursor-pointer transition-colors duration-200 focus:outline-none">
                         Locations
-                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                      </button>
-                      <div class="absolute left-0 mt-2 w-56 rounded-md shadow-2xl bg-neutral-900 border border-zinc-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
-                        <div class="py-1" role="menu" aria-orientation="vertical">
-              <a href="locations/phoenix-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Phoenix, AZ</a>
-              <a href="locations/scottsdale-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Scottsdale, AZ</a>
-              <a href="locations/peoria-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Peoria, AZ</a>
-              <a href="locations/glendale-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Glendale, AZ</a>
-              <a href="locations/mesa-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Mesa, AZ</a>
-              <a href="locations/tempe-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Tempe, AZ</a>
-              <a href="locations/gilbert-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Gilbert, AZ</a>
-              <a href="locations/chandler-az/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">Chandler, AZ</a>
-                        </div>
+                        <svg class="w-4 h-4 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                      </summary>
+                      <div class="absolute left-0 mt-3 w-60 rounded-md shadow-2xl bg-neutral-950 border border-zinc-800 z-50 py-1 focus:outline-none">
+                        <a href="locations/phoenix-az/" class="block px-4 py-2.5 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-black no-underline transition-colors duration-150">Phoenix, AZ</a>
+                        <a href="locations/scottsdale-az/" class="block px-4 py-2.5 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-black no-underline transition-colors duration-150">Scottsdale, AZ</a>
+                        <a href="locations/peoria-az/" class="block px-4 py-2.5 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-black no-underline transition-colors duration-150">Peoria, AZ</a>
+                        <a href="locations/glendale-az/" class="block px-4 py-2.5 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-black no-underline transition-colors duration-150">Glendale, AZ</a>
+                        <a href="locations/mesa-az/" class="block px-4 py-2.5 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-black no-underline transition-colors duration-150">Mesa, AZ</a>
+                        <a href="locations/tempe-az/" class="block px-4 py-2.5 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-black no-underline transition-colors duration-150">Tempe, AZ</a>
+                        <a href="locations/gilbert-az/" class="block px-4 py-2.5 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-black no-underline transition-colors duration-150">Gilbert, AZ</a>
+                        <a href="locations/chandler-az/" class="block px-4 py-2.5 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-black no-underline transition-colors duration-150">Chandler, AZ</a>
                       </div>
-                    </div>
+                    </details>
 
-                    <a href="#services" class="text-white hover:text-[#f97316] font-bold uppercase text-sm tracking-wider transition-colors duration-200">Services</a>
+                    <a href="#services" class="text-white hover:text-[#f97316] font-black uppercase text-sm tracking-wider no-underline transition-colors duration-200">Services</a>
 
-                    <a href="#quote" class="btn-sm navigation-cta btn-primary btn bg-orange-500 text-white px-5 py-2 rounded-md font-bold uppercase tracking-wide hover:bg-orange-600 transition-all inline-flex items-center gap-1">
+                    <a href="#quote" class="btn-sm navigation-cta btn-primary btn bg-orange-500 text-white px-5 py-2 rounded-md font-bold uppercase tracking-wide hover:bg-orange-600 transition-all inline-flex items-center gap-1 no-underline">
                       <span>Get a Quote</span>
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7"></path></svg>
                     </a>
@@ -211,14 +195,14 @@
                       <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </summary>
                     <div class="pl-2 pt-2 flex flex-col max-h-[50vh] overflow-y-auto">
-                      <a href="locations/phoenix-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Phoenix, AZ</a>
-                      <a href="locations/scottsdale-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Scottsdale, AZ</a>
-                      <a href="locations/peoria-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Peoria, AZ</a>
-                      <a href="locations/glendale-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Glendale, AZ</a>
-                      <a href="locations/mesa-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Mesa, AZ</a>
-                      <a href="locations/tempe-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Tempe, AZ</a>
-                      <a href="locations/gilbert-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Gilbert, AZ</a>
-                      <a href="locations/chandler-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold transition-colors">Chandler, AZ</a>
+                      <a href="locations/phoenix-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold no-underline transition-colors">Phoenix, AZ</a>
+                      <a href="locations/scottsdale-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold no-underline transition-colors">Scottsdale, AZ</a>
+                      <a href="locations/peoria-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold no-underline transition-colors">Peoria, AZ</a>
+                      <a href="locations/glendale-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold no-underline transition-colors">Glendale, AZ</a>
+                      <a href="locations/mesa-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold no-underline transition-colors">Mesa, AZ</a>
+                      <a href="locations/tempe-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold no-underline transition-colors">Tempe, AZ</a>
+                      <a href="locations/gilbert-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold no-underline transition-colors">Gilbert, AZ</a>
+                      <a href="locations/chandler-az/" class="navigation-mobile-link block py-2 text-sm text-zinc-300 hover:text-[#f97316] font-semibold no-underline transition-colors">Chandler, AZ</a>
                     </div>
                   </details>
                   <a href="#services">

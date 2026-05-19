@@ -3,6 +3,7 @@ const path = require("path");
 
 const D = "div";
 
+// Phone map: Scottsdale = 480-577-2655; all other metros = site general line (623-888-1023)
 const locations = [
   { slug: "phoenix-az", cityName: "Phoenix, Arizona", phone: "623-888-1023", tel: "6238881023" },
   { slug: "scottsdale-az", cityName: "Scottsdale, Arizona", phone: "480-577-2655", tel: "4805772655" },
@@ -17,7 +18,7 @@ const locations = [
 const locationLinks = locations
   .map(
     (loc) =>
-      `              <a href="../${loc.slug}/" class="block px-4 py-2 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-bold transition-colors" role="menuitem">${loc.cityName.replace(", Arizona", ", AZ")}</a>`
+      `                        <a href="../${loc.slug}/" class="block px-4 py-2.5 text-sm text-zinc-200 hover:bg-[#f97316] hover:text-white font-black no-underline transition-colors duration-150">${loc.cityName.replace(", Arizona", ", AZ")}</a>`
   )
   .join("\n");
 
@@ -40,60 +41,58 @@ function buildPage(loc) {
     <link rel="stylesheet" href="../../style.css" />
     <link rel="stylesheet" href="../../index.css" />
   </head>
-  <body class="bg-neutral-950 text-white min-h-screen flex flex-col">
-    <nav class="navigation-root relative z-50 w-full bg-neutral-950/90 backdrop-blur-md border-b border-zinc-800">
+  <body class="bg-neutral-950 text-white min-h-screen flex flex-col font-sans overflow-x-hidden">
+    <nav class="navigation-root relative z-50 w-full bg-neutral-950/90 backdrop-blur-md border-b border-zinc-800 font-sans">
       <${D} class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <${D} class="flex items-center justify-between h-20">
           <${D} class="flex-shrink-0">
-            <a href="../../index.html" class="flex items-center gap-3">
+            <a href="../../index.html" class="flex items-center no-underline decoration-transparent">
               <img src="../../images/logo-white.png" alt="Clean Raccoon Logo" class="h-14 w-auto object-contain" />
-              <${D} class="hidden sm:flex flex-col leading-tight">
-                <span class="text-white font-bold uppercase tracking-wide text-sm">Clean Raccoon</span>
-                <span class="text-zinc-400 font-semibold uppercase text-[10px] tracking-wider">Junk Removal &amp; Demolition</span>
-              </${D}>
             </a>
           </${D}>
           <${D} class="hidden md:flex items-center space-x-6">
-            <${D} class="relative group">
-              <button type="button" class="flex items-center gap-1 text-white hover:text-[#f97316] font-bold uppercase text-sm tracking-wider transition-colors duration-200 focus:outline-none" aria-haspopup="true">
+            <details class="nav-locations-dropdown relative inline-block text-left group select-none">
+              <summary class="flex items-center gap-1 text-white hover:text-[#f97316] font-black uppercase text-sm tracking-wider list-none cursor-pointer transition-colors duration-200 focus:outline-none">
                 Locations
-                <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-              </button>
-              <${D} class="absolute left-0 mt-2 w-56 rounded-md shadow-2xl bg-neutral-900 border border-zinc-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
-                <${D} class="py-1" role="menu">
+                <svg class="w-4 h-4 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </summary>
+              <${D} class="absolute left-0 mt-3 w-60 rounded-md shadow-2xl bg-neutral-950 border border-zinc-800 z-50 py-1 focus:outline-none">
 ${locationLinks}
-                </${D}>
               </${D}>
-            </${D}>
-            <a href="../../index.html#services" class="text-white hover:text-[#f97316] font-bold uppercase text-sm tracking-wider transition-colors duration-200">Services</a>
-            <a href="../../index.html#quote" class="bg-orange-500 text-white px-5 py-2 rounded-md font-bold uppercase tracking-wide hover:bg-orange-600 transition-all inline-flex items-center gap-1">Get a Quote</a>
+            </details>
+            <a href="../../index.html#services" class="text-white hover:text-[#f97316] font-black uppercase text-sm tracking-wider no-underline transition-colors duration-200">Services</a>
+            <a href="../../index.html#quote" class="bg-orange-500 text-white px-5 py-2 rounded-md font-bold uppercase tracking-wide hover:bg-orange-600 transition-all inline-flex items-center gap-1 no-underline">Get a Quote</a>
           </${D}>
           <a href="tel:${loc.tel}" class="md:hidden bg-[#f97316] text-white font-bold uppercase text-xs px-3 py-2 rounded-md">Call</a>
         </${D}>
       </${D}>
     </nav>
 
-    <main class="flex-1">
-      <section class="hero-contact relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-neutral-950">
-        <video autoplay loop muted playsinline class="hidden md:block absolute top-0 left-0 w-full h-full object-cover z-0"><source src="../../videos/landfill.mp4" type="video/mp4" /></video>
-        <video autoplay loop muted playsinline class="block md:hidden absolute top-0 left-0 w-full h-full object-cover z-0"><source src="../../videos/mobile-dumpster.mp4" type="video/mp4" /></video>
-        <${D} class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0.35)_50%,rgba(0,0,0,0.95)_100%)] md:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0.38)_58%,rgba(0,0,0,0.95)_100%)] z-10 pointer-events-none"></${D}>
+    <section class="hero-contact relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-neutral-950">
+      <video autoplay loop muted playsinline class="hidden md:block absolute top-0 left-0 w-full h-full object-cover z-0"><source src="../../videos/landfill.mp4" type="video/mp4" /></video>
+      <video autoplay loop muted playsinline class="block md:hidden absolute top-0 left-0 w-full h-full object-cover z-0"><source src="../../videos/mobile-dumpster.mp4" type="video/mp4" /></video>
+      <${D} class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0.35)_50%,rgba(0,0,0,0.95)_100%)] md:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0.38)_58%,rgba(0,0,0,0.95)_100%)] z-10 pointer-events-none"></${D}>
 
-        <${D} class="relative z-20 container mx-auto px-4 text-center max-w-5xl flex flex-col items-center justify-center pt-6">
-          <${D} class="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-4 mb-2 w-full">
-            <${D} class="flex-shrink-0 drop-shadow-[0_4px_25px_rgba(249,115,22,0.65)] md:-mr-8 relative z-30">
-              <img src="../../images/logo.png" alt="Clean Raccoon Logo" class="w-28 h-28 md:w-48 md:h-48 object-scale-down" />
-            </${D}>
-            <h1 class="hero-title-shadow text-4xl md:text-7xl lg:text-8xl font-black uppercase text-white tracking-normal text-center md:text-left">Clean Raccoon</h1>
+      <${D} class="relative z-20 container mx-auto px-4 text-center max-w-5xl pt-6 md:pt-12 flex flex-col items-center justify-center">
+        <${D} class="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-4 mb-2 w-full">
+          <${D} class="flex-shrink-0 drop-shadow-[0_4px_25px_rgba(249,115,22,0.65)] md:-mr-8 relative z-30">
+            <img src="../../images/logo.png" alt="Clean Raccoon Logo" class="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-52 lg:h-52 object-scale-down mx-auto" />
           </${D}>
-          <p class="hero-subtitle-shadow text-base md:text-3xl font-extrabold uppercase text-white mb-1">Junk Removal &amp; Demolition</p>
-          <p class="text-sm md:text-xl font-black tracking-widest text-zinc-300 uppercase px-3 py-1 bg-[#f97316]/20 border border-[#f97316]/40 rounded-md mb-4 shadow-sm animate-pulse">Proudly Serving ${loc.cityName}</p>
-          <p class="text-zinc-100 text-sm md:text-2xl max-w-2xl font-semibold mb-6 px-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">We haul away the stress in ${loc.cityName} so you can enjoy a clutter free environment.</p>
-          <a href="tel:${loc.tel}" class="bg-[#f97316] hover:bg-orange-600 text-white font-black uppercase tracking-wider text-lg px-8 py-4 rounded-md shadow-[0_4px_20px_rgba(249,115,22,0.4)] transition-all transform hover:-translate-y-1">Call Now: ${loc.phone}</a>
+          <h1 class="hero-title-shadow text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-normal uppercase text-white text-center relative z-20">Clean Raccoon</h1>
         </${D}>
-        <${D} class="absolute bottom-0 left-0 w-full h-[4px] bg-[#f97316] z-30 shadow-[0_0_15px_rgba(249,115,22,0.5)]"></${D}>
-      </section>
+        <p class="hero-subtitle-shadow text-base sm:text-lg md:text-2xl lg:text-3xl font-extrabold tracking-wide uppercase text-white mb-4 text-center px-2">Junk Removal &amp; Demolition</p>
+        <${D} class="mb-5 animate-pulse">
+          <span class="text-sm md:text-xl font-black tracking-widest text-white uppercase px-5 py-2 bg-gradient-to-r from-orange-600/80 via-[#f97316]/90 to-orange-600/80 border-2 border-[#f97316] rounded-md shadow-[0_0_15px_rgba(249,115,22,0.4)]">Proudly Serving ${loc.cityName}</span>
+        </${D}>
+        <p class="text-zinc-100 text-sm sm:text-base md:text-2xl max-w-md md:max-w-2xl font-semibold tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-relaxed text-center mb-8 px-4">We haul away the stress in ${loc.cityName} so you can enjoy a clutter free environment.</p>
+        <${D} class="flex justify-center items-center w-full">
+          <a href="tel:${loc.tel}" class="bg-[#f97316] hover:bg-orange-600 text-white font-black uppercase tracking-wider text-lg px-8 py-4 rounded-md shadow-[0_4px_25px_rgba(249,115,22,0.55)] transition-all duration-200 transform hover:-translate-y-1 no-underline">Call Live Crew: ${loc.phone}</a>
+        </${D}>
+      </${D}>
+      <${D} class="absolute bottom-0 left-0 w-full h-[4px] bg-[#f97316] z-30 shadow-[0_0_15px_rgba(249,115,22,0.5)]"></${D}>
+    </section>
 
+    <main class="w-full relative z-20 bg-neutral-950 flex-1">
       <section class="bg-white py-16 px-4">
         <${D} class="max-w-4xl mx-auto text-center">
           <h2 class="text-2xl md:text-3xl font-black text-neutral-900 uppercase mb-4">Full-Service Junk Removal in ${shortArea}</h2>
@@ -103,14 +102,14 @@ ${locationLinks}
       </section>
     </main>
 
-    <footer class="mt-auto bg-neutral-900 border-t border-zinc-800 py-12 relative z-20">
+    <footer class="bg-neutral-900 border-t border-zinc-800 py-12 relative z-20 mt-auto font-sans">
       <${D} class="max-w-7xl mx-auto px-4 text-center">
         <p class="text-[#f97316] font-black text-xl uppercase tracking-wider mb-2">Clean Raccoon Hauling</p>
         <p class="text-zinc-400 max-w-xl mx-auto text-sm font-medium mb-4">Your premier local choice for professional junk removal, shed removals, light demolition, and bulk cleanups throughout the greater ${loc.cityName} service areas.</p>
         <${D} class="flex flex-col items-center justify-center gap-2 text-zinc-300 font-bold">
-          <p>Direct Crew Line: <a href="tel:${loc.tel}" class="text-white hover:text-[#f97316] underline">${loc.phone}</a></p>
-          <p class="text-xs text-zinc-500 font-semibold uppercase tracking-widest mt-2">© 2026 Clean Raccoon Junk Removal &amp; Demolition — ${shortArea}, AZ Area Hub</p>
-          <a href="../../index.html" class="text-sm text-zinc-500 hover:text-[#f97316] mt-4 inline-block">← Back to main site</a>
+          <p>Direct Crew Line: <a href="tel:${loc.tel}" class="text-white hover:text-[#f97316] underline font-bold tracking-wide">${loc.phone}</a></p>
+          <p class="text-xs text-zinc-500 font-semibold uppercase tracking-widest mt-4">© 2026 Clean Raccoon Junk Removal &amp; Demolition — ${loc.cityName}, AZ Hub</p>
+          <a href="../../index.html" class="text-sm text-zinc-500 hover:text-[#f97316] mt-4 inline-block no-underline">← Back to main site</a>
         </${D}>
       </${D}>
     </footer>
