@@ -14,15 +14,17 @@
     <link rel="stylesheet" href="../../index.css" />
   </head>
   <body class="bg-neutral-950 text-white min-h-screen flex flex-col font-sans overflow-x-hidden">
-    <nav class="navigation-root relative z-50 w-full bg-neutral-950/90 backdrop-blur-md border-b border-zinc-800 font-sans">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
-          <div class="flex-shrink-0">
-            <a href="../../index.html" class="flex items-center no-underline decoration-transparent">
-              <img src="../../images/logo-white.png" alt="Clean Raccoon Logo" class="h-14 w-auto object-contain" />
+    <!-- Navbar (global, identical on every city page) -->
+    <nav class="navigation-root relative z-50 w-full bg-neutral-900 text-white border-b border-zinc-800 font-sans">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex-shrink-0 min-w-0">
+            <a href="../../index.html" class="flex items-center gap-3 no-underline decoration-transparent">
+              <img src="../../images/logo-white.png" alt="Clean Raccoon" class="h-10 w-auto object-contain flex-shrink-0" />
+              <span class="text-sm font-medium text-zinc-100 hidden md:block whitespace-nowrap">Junk Removal &amp; Demolition</span>
             </a>
           </div>
-          <div class="hidden md:flex items-center space-x-6">
+          <div class="hidden md:flex items-center space-x-6 flex-shrink-0">
             <details class="nav-locations-dropdown relative inline-block text-left group select-none">
               <summary class="flex items-center gap-1 text-white hover:text-[#f97316] font-black uppercase text-sm tracking-wider list-none cursor-pointer transition-colors duration-200 focus:outline-none">
                 Locations
@@ -42,11 +44,14 @@
             <a href="../../index.html#services" class="text-white hover:text-[#f97316] font-black uppercase text-sm tracking-wider no-underline transition-colors duration-200">Services</a>
             <a href="../../index.html#quote" class="bg-orange-500 text-white px-5 py-2 rounded-md font-bold uppercase tracking-wide hover:bg-orange-600 transition-all inline-flex items-center gap-1 no-underline">Get a Quote</a>
           </div>
-          <a href="tel:6238881023" class="md:hidden bg-[#f97316] text-white font-bold uppercase text-xs px-3 py-2 rounded-md">Call</a>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="tel:6238881023" class="md:hidden bg-[#f97316] text-white font-bold uppercase text-xs px-3 py-2 rounded-md no-underline">Call</a>
+          </div>
         </div>
       </div>
     </nav>
 
+    <!-- Hero: dynamicText = locationData.peoria.heroText -->
     <section class="hero-contact relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-neutral-950">
       <video autoplay loop muted playsinline class="hidden md:block absolute top-0 left-0 w-full h-full object-cover z-0"><source src="../../videos/landfill.mp4" type="video/mp4" /></video>
       <video autoplay loop muted playsinline class="block md:hidden absolute top-0 left-0 w-full h-full object-cover z-0"><source src="../../videos/mobile-dumpster.mp4" type="video/mp4" /></video>
@@ -71,16 +76,18 @@
       <div class="absolute bottom-0 left-0 w-full h-[4px] bg-[#f97316] z-30 shadow-[0_0_15px_rgba(249,115,22,0.5)]"></div>
     </section>
 
+    <!-- Main sections (services teaser; mirror homepage #services on Next) -->
     <main class="w-full relative z-20 bg-neutral-950 flex-1">
       <section class="bg-white py-16 px-4">
         <div class="max-w-4xl mx-auto text-center">
           <h2 class="text-2xl md:text-3xl font-black text-neutral-900 uppercase mb-4">Full-Service Junk Removal in Peoria</h2>
           <p class="text-neutral-600 mb-6">Residential cleanouts, commercial hauling, shed removal, and light demolition — serving Peoria, Arizona and nearby communities.</p>
-          <a href="../../index.html#services" class="inline-flex items-center gap-2 bg-neutral-900 text-white font-bold uppercase tracking-wide px-6 py-3 rounded-md hover:bg-[#f97316] transition-colors">View All Services</a>
+          <a href="../../index.html#services" class="inline-flex items-center gap-2 bg-neutral-900 text-white font-bold uppercase tracking-wide px-6 py-3 rounded-md hover:bg-[#f97316] transition-colors no-underline">View All Services</a>
         </div>
       </section>
     </main>
 
+    <!-- Footer: phone = locationData.peoria.phone -->
     <footer class="bg-neutral-900 border-t border-zinc-800 py-12 relative z-20 mt-auto font-sans">
       <div class="max-w-7xl mx-auto px-4 text-center">
         <p class="text-[#f97316] font-black text-xl uppercase tracking-wider mb-2">Clean Raccoon Hauling</p>
