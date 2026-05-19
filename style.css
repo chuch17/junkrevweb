@@ -2560,10 +2560,10 @@
 }
 
 .nav-locations-menu.is-open {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 .nav-locations-trigger--mobile {

@@ -83,6 +83,32 @@
         },
       }
     </script>
+    <script>
+      window.toggleLocationsNav =
+        window.toggleLocationsNav ||
+        function (event, trigger) {
+          if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          if (!trigger || !trigger.closest) return false;
+          var wrapper = trigger.closest("[data-locations-nav]");
+          if (!wrapper) return false;
+          var menu = wrapper.querySelector("[data-locations-menu]");
+          if (!menu) return false;
+          var willOpen = !menu.classList.contains("is-open");
+          document.querySelectorAll("[data-locations-nav]").forEach(function (w) {
+            if (w === wrapper) return;
+            var otherMenu = w.querySelector("[data-locations-menu]");
+            var otherTrigger = w.querySelector("[data-locations-trigger]");
+            if (otherMenu) otherMenu.classList.remove("is-open");
+            if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+          });
+          menu.classList.toggle("is-open", willOpen);
+          trigger.setAttribute("aria-expanded", willOpen ? "true" : "false");
+          return false;
+        };
+    </script>
   </head>
   <body>
     <link rel="stylesheet" href="../../style.css" />
@@ -131,7 +157,7 @@
                       </div>
                     </a>
                     <div class="nav-locations-dropdown" data-locations-nav>
-                      <button type="button" class="nav-locations-trigger navigation-link uppercase tracking-wider font-bold font-sans text-white hover:text-orange-500 transition-colors cursor-pointer flex items-center gap-1" data-locations-trigger aria-expanded="false" aria-haspopup="true">
+                      <button type="button" class="nav-locations-trigger navigation-link uppercase tracking-wider font-bold font-sans text-white hover:text-orange-500 transition-colors cursor-pointer flex items-center gap-1" data-locations-trigger aria-expanded="false" aria-haspopup="true" onclick="return toggleLocationsNav(event, this)">
                         <span>Locations</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
                       </button>
@@ -223,7 +249,7 @@
               <div class="navigation-mobile-content">
                 <div class="navigation-mobile-links">
                   <div class="nav-locations-dropdown nav-locations-dropdown--mobile" data-locations-nav>
-                    <button type="button" class="nav-locations-trigger nav-locations-trigger--mobile uppercase tracking-wider font-bold font-sans text-white cursor-pointer flex items-center justify-between py-2 w-full text-left" data-locations-trigger aria-expanded="false" aria-haspopup="true">
+                    <button type="button" class="nav-locations-trigger nav-locations-trigger--mobile uppercase tracking-wider font-bold font-sans text-white cursor-pointer flex items-center justify-between py-2 w-full text-left" data-locations-trigger aria-expanded="false" aria-haspopup="true" onclick="return toggleLocationsNav(event, this)">
                       <span>Locations</span>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
@@ -1452,6 +1478,6 @@
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
       data-widget-id="69c457b0f605723efd9dcecb">
     </script>
-      <script src="../../scripts/locations-nav.js" defer></script>
+      <script src="/scripts/locations-nav.js"></script>
   </body>
 </html>

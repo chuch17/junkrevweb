@@ -1,5 +1,6 @@
 /**
- * Locations dropdown toggle (vanilla JS — mirrors React useState for static HTML).
+ * Locations dropdown — global toggleLocationsNav() for inline onclick + enhancements.
+ * Selectors: [data-locations-nav], [data-locations-trigger], [data-locations-menu]
  */
 (function () {
   function closeAll(except) {
@@ -22,23 +23,25 @@
     trigger.setAttribute("aria-expanded", open ? "true" : "false");
   }
 
-  function init() {
-    document.querySelectorAll("[data-locations-nav]").forEach(function (wrapper) {
-      var trigger = wrapper.querySelector("[data-locations-trigger]");
-      var menu = wrapper.querySelector("[data-locations-menu]");
-      if (!trigger || !menu) return;
+  window.toggleLocationsNav = function (event, trigger) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    if (!trigger || !trigger.closest) return false;
+    var wrapper = trigger.closest("[data-locations-nav]");
+    if (!wrapper) return false;
+    var menu = wrapper.querySelector("[data-locations-menu]");
+    if (!menu) return false;
+    setOpen(wrapper, !menu.classList.contains("is-open"));
+    return false;
+  };
 
-      trigger.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var isOpen = menu.classList.contains("is-open");
-        setOpen(wrapper, !isOpen);
-      });
-
-      menu.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-          setOpen(wrapper, false);
-        });
+  function bindEnhancements() {
+    document.querySelectorAll("[data-locations-nav] [data-locations-menu] a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wrapper = link.closest("[data-locations-nav]");
+        if (wrapper) setOpen(wrapper, false);
       });
     });
 
@@ -53,8 +56,8 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", bindEnhancements);
   } else {
-    init();
+    bindEnhancements();
   }
 })();
