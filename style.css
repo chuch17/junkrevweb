@@ -2495,27 +2495,28 @@
     height: 48px;
   }
   .review-cta-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: var(--spacing-2xl);
-  gap: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+    gap: var(--spacing-lg);
+  }
+
+  .review-cta-container .review-cta-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .review-cta-btn {
+    width: 100%;
+  }
 }
 
-.review-cta-container .review-cta-text {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #ffffff !important;
-  line-height: 1.2;
-  margin-bottom: var(--spacing-sm);
-}
-
-.review-cta-btn {
-  width: 100%;
-}
-
-/* Locations dropdown */
+/* Locations dropdown — must be global (not inside a max-width media query) */
 .navigation-root,
 .navigation-container,
 .navigation-desktop-menu,
@@ -2564,6 +2565,8 @@
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
+  position: absolute !important;
+  z-index: 9999 !important;
 }
 
 .nav-locations-trigger--mobile {
@@ -2608,9 +2611,4 @@
   background: #f97316;
   color: #fff;
   text-decoration: none !important;
-}
-
-.navigation-root {
-  position: relative;
-  z-index: 1000;
 }
