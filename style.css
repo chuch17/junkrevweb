@@ -2566,6 +2566,20 @@
   pointer-events: auto;
 }
 
+.nav-locations-trigger--mobile {
+  color: var(--color-on-surface);
+  font-size: var(--font-size-2xl);
+  transition: transform 0.3s ease, color 0.3s ease;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading);
+  text-decoration: none;
+}
+
+.nav-locations-trigger--mobile:hover {
+  color: #ff8c00;
+  transform: translateX(10px);
+}
+
 .nav-locations-menu--mobile {
   position: relative;
   top: auto;
