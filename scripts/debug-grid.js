@@ -1,0 +1,12 @@
+const fs = require("fs");
+const h = fs.readFileSync(require("path").join(__dirname, "..", "index.html"), "utf8");
+const k = h.indexOf('            <motion class="areas-grid">'.replace("motion", "div"));
+console.log("start", k);
+const tail = h.slice(k, k + 80);
+console.log("head", JSON.stringify(tail));
+const end = h.indexOf("            </div>\n          </motion>", k);
+console.log("end1", end);
+const end2 = h.indexOf("            </motion>\n          </motion>", k);
+console.log("end2", end2);
+const near = h.slice(end - 20, end + 40);
+console.log("near end1", JSON.stringify(near));
