@@ -2514,3 +2514,25 @@
 .review-cta-btn {
   width: 100%;
 }
+
+/* Locations dropdown */
+.nav-locations-dropdown { position: relative; display: inline-block; }
+.nav-locations-dropdown summary::-webkit-details-marker { display: none; }
+.nav-locations-menu {
+  position: absolute; left: 0; top: calc(100% + 8px); min-width: 220px;
+  background: #111827; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45); z-index: 9999; padding: 4px 0; overflow: hidden;
+}
+.nav-locations-menu--mobile {
+  position: relative; top: auto; left: auto; margin-top: 8px;
+  box-shadow: none; border: 1px solid rgba(255,255,255,0.08);
+}
+.nav-locations-menu-link {
+  display: block; padding: 12px 16px; color: #f4f4f5; font-weight: 700; font-size: 14px;
+  text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-locations-menu-link:hover, .nav-locations-menu-link:focus {
+  background: #f97316; color: #fff; text-decoration: none;
+}
+.navigation-root { position: relative; z-index: 1000; }
