@@ -1286,6 +1286,27 @@
   object-fit: cover;
 }
 
+.hero-video-desktop,
+.hero-video-mobile {
+  object-fit: cover;
+}
+
+@media (max-width: 1023px) {
+  .hero-video-desktop {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-video-mobile {
+    display: none !important;
+  }
+
+  .hero-video-desktop {
+    display: block;
+  }
+}
+
 .hero-text-block {
   flex: 6;
   color: #ffffff;
