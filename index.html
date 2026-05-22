@@ -370,7 +370,7 @@
             loop
             muted
             playsinline
-            class="hero-video-desktop hidden lg:block absolute top-0 left-0 w-full h-full object-cover z-0"
+            class="hero-video hero-video-desktop"
             key="hero-video-desktop"
           >
             <source src="videos/Dumpster-Hero-Up.mp4" type="video/mp4" />
@@ -380,7 +380,7 @@
             loop
             muted
             playsinline
-            class="hero-video-mobile block lg:hidden absolute top-0 left-0 w-full h-full object-cover z-0"
+            class="hero-video hero-video-mobile"
             key="hero-video-mobile-action"
           >
             <source src="videos/mobile-dumpster.mp4" type="video/mp4" />
@@ -977,7 +977,7 @@
                 (function(){
                   const heroSection = document.querySelector(".hero-contact")
                   const heroVideos = heroSection
-                    ? heroSection.querySelectorAll("video")
+                    ? heroSection.querySelectorAll(".hero-video-desktop, .hero-video-mobile")
                     : []
 
                   heroVideos.forEach(function (heroVideo) {
