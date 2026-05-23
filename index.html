@@ -425,6 +425,15 @@
               environment.
             </p>
 
+            <button
+              id="open-video-btn"
+              class="play-video-btn hidden lg:inline-flex items-center justify-center mb-6"
+              type="button"
+            >
+              <span class="play-icon" aria-hidden="true">▶</span>
+              Watch How We Work
+            </button>
+
             <div
               class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full max-w-xs sm:max-w-none px-4"
             >
@@ -1378,6 +1387,64 @@
         href="https://wonderful-venerated-dotterel-6pa1pz.teleporthq.app/"
       />
     </div>
+    <div id="video-modal" class="video-modal-overlay" aria-hidden="true">
+      <div class="modal-content-wrapper">
+        <button
+          id="close-video-btn"
+          class="close-modal-btn"
+          type="button"
+          aria-label="Close video"
+        >
+          &times;
+        </button>
+        <div class="video-responsive-container">
+          <video id="popup-ad-video" controls playsinline>
+            <source src="videos/raccoon-ad.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <script defer="" data-name="hero-ad-video-modal">
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("video-modal")
+        const openBtn = document.getElementById("open-video-btn")
+        const closeBtn = document.getElementById("close-video-btn")
+        const video = document.getElementById("popup-ad-video")
+
+        if (!modal || !openBtn || !closeBtn || !video) {
+          return
+        }
+
+        function closeModal() {
+          modal.style.display = "none"
+          modal.setAttribute("aria-hidden", "true")
+          video.pause()
+          video.currentTime = 0
+        }
+
+        openBtn.addEventListener("click", function () {
+          modal.style.display = "flex"
+          modal.setAttribute("aria-hidden", "false")
+          video.play().catch(function () {})
+        })
+
+        closeBtn.addEventListener("click", closeModal)
+
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            closeModal()
+          }
+        })
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && modal.style.display === "flex") {
+            closeModal()
+          }
+        })
+      })
+    </script>
     <script 
       src="https://widgets.leadconnectorhq.com/loader.js"  
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
