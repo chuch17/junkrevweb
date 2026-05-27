@@ -2837,6 +2837,15 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
   opacity: 0.95;
 }
 
+.hero-desktop-location {
+  margin: 4px 0 0;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 2px 2px 0 #f97316, 4px 4px 0 rgba(0, 0, 0, 0.9);
+}
+
 .hero-desktop-accent-bar {
   position: absolute;
   bottom: 0;
@@ -2855,7 +2864,7 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
     justify-content: center;
     min-height: 80vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("images/truck-bg.png");
+      url("/images/truck-bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
