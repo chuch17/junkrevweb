@@ -4,7 +4,7 @@
 
   var LOCATIONS = [
     { label: "Scottsdale, Arizona", href: "/locations/scottsdale-az/" },
-    { label: "Peoria, Arizona", href: "/" },
+    { label: "Homepage", href: "/" },
   ]
 
   function smoothScrollTo(target) {
@@ -27,7 +27,7 @@
     panel.setAttribute("aria-hidden", "true")
 
     var textLink = document.createElement("a")
-    textLink.className = "fab-menu-item"
+    textLink.className = "fab-menu-item fab-menu-item--primary"
     textLink.href = SMS_HREF
     textLink.textContent = "Text a Photo Now"
     panel.appendChild(textLink)

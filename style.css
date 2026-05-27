@@ -3020,6 +3020,16 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
   outline: none;
 }
 
+.fab-menu-item--primary {
+  color: #f97316;
+}
+
+.fab-menu-item--primary:hover,
+.fab-menu-item--primary:focus-visible {
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.12);
+}
+
 .fab-menu-item--toggle .fab-menu-chevron {
   font-size: 0.85rem;
   opacity: 0.75;
