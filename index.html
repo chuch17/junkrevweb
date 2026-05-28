@@ -259,30 +259,17 @@
                     </div>
                   </div>
 
-                  <a href="index.html">
-                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
-                      <span>Services</span>
-                    </div>
+                  <a
+                    href="#services"
+                    class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors"
+                  >
+                    Services
                   </a>
-                  <a href="index.html">
-                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
-                      <span>Residential Removal</span>
-                    </div>
-                  </a>
-                  <a href="index.html">
-                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
-                      <span>Commercial Cleanout</span>
-                    </div>
-                  </a>
-                  <a href="index.html">
-                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
-                      <span>Pricing Plans</span>
-                    </div>
-                  </a>
-                  <a href="index.html">
-                    <div class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors">
-                      <span>About Us</span>
-                    </div>
+                  <a
+                    href="#how-it-works"
+                    class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors"
+                  >
+                    How it Works
                   </a>
                 </div>
                 <div class="navigation-mobile-footer">
@@ -343,6 +330,7 @@
                       mobileOverlay.addEventListener("click", (e) => {
                         if (e.target.closest("[data-locations-trigger]")) return
                         if (
+                          e.target.closest(".navigation-mobile-links a") ||
                           e.target.classList.contains("navigation-mobile-link") ||
                           e.target.closest(".nav-locations-menu-link")
                         ) {
@@ -579,7 +567,7 @@
           ></div>
         </section>
         <div class="home-container11">
-          <section class="home-thq-process-steps-elm process-steps">
+          <section id="how-it-works" class="home-thq-process-steps-elm process-steps">
             <div class="w-full py-20 bg-white text-zinc-900">
               <div class="max-w-6xl mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-center uppercase tracking-tight mb-12">
@@ -806,26 +794,28 @@
                     </div>
                   </div>
                   <div class="action-container">
-                    <a href="sms:4805772655?body=Hi%20Raccoon%20Team%2C%20I%27d%20like%20a%20quote%20for%20my%20junk%20removal.%20I%27ll%20send%20over%20the%20photos%20shortly.">
-                      <div class="action-btn btn-primary btn btn-xl">
-                        <svg
-                          width="24"
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="24"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                        </svg>
-                        <span>Call or Text Now</span>
-                      </div>
-                    </a>
+                    <button
+                      type="button"
+                      class="action-btn btn-primary btn btn-xl"
+                      data-call-text-trigger
+                    >
+                      <svg
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                      <span>Call or Text Now</span>
+                    </button>
                   </div>
                 </div>
                 <div class="visual-column">
@@ -1478,6 +1468,7 @@
         })
       })
     </script>
+    <script src="/scripts/call-text-modal.js"></script>
     <script src="/scripts/fab-menu.js"></script>
     <script src="/scripts/locations-nav.js"></script>
   </body>

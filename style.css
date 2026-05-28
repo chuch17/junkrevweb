@@ -866,9 +866,16 @@
 }
  
 .navigation-mobile-links {
-  gap: var(--spacing-xl);
+  gap: 1.25rem;
   display: flex;
   flex-direction: column;
+  padding: 0.5rem 0 1rem;
+}
+
+.navigation-mobile-links > a.navigation-mobile-link {
+  display: block;
+  padding: 0.75rem 0;
+  width: 100%;
 }
  
 .navigation-mobile-footer {
@@ -3116,5 +3123,94 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
     width: 52px;
     height: 52px;
   }
+}
+
+.call-text-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.call-text-modal-overlay.is-open {
+  display: flex;
+}
+
+.call-text-modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  padding: 28px 24px 24px;
+  background: #18181b;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+
+.call-text-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: none;
+  color: #a1a1aa;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.call-text-modal-close:hover {
+  color: #fff;
+}
+
+.call-text-modal-title {
+  margin: 0 0 20px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fafafa;
+  line-height: 1.4;
+}
+
+.call-text-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.call-text-modal-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.call-text-modal-btn--call {
+  background: #f97316;
+  color: #fff;
+}
+
+.call-text-modal-btn--call:hover {
+  background: #ea580c;
+  color: #fff;
+}
+
+.call-text-modal-btn--text {
+  background: transparent;
+  color: #f97316;
+  border: 2px solid #f97316;
+}
+
+.call-text-modal-btn--text:hover {
+  background: rgba(249, 115, 22, 0.12);
+  color: #fb923c;
 }
 
