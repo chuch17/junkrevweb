@@ -1,7 +1,7 @@
 (function () {
   var CALL_HREF = "tel:6238881023"
   var SMS_HREF =
-    "sms:6238881023?body=Hi%20raccoon%20team.%20I%27d%20like%20a%20quote%20for%20my%20junk%20removal.%20I%27ll%20send%20over%20the%20photos%20shortly."
+    "sms:4805772655?body=Hi%20raccoon%20team.%20I%27d%20like%20a%20quote%20for%20my%20junk%20removal.%20I%27ll%20send%20over%20the%20photos%20shortly."
 
   function buildModal() {
     if (document.getElementById("call-text-modal")) return
