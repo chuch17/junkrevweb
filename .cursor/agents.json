@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "project": "Clean Raccoon Website Workspace",
+  "profiles": [
+    {
+      "name": "Local Code Editor Profile",
+      "role": "Senior Web Developer and Local SEO Optimizer",
+      "description": "This profile governs localized edits to the Clean Raccoon front-end application and asset roots.",
+      "constraints": {
+        "allowFileCreation": true,
+        "allowFileModification": true,
+        "allowTerminalCommands": [
+          "npm run build",
+          "npm run dev",
+          "git status",
+          "git diff"
+        ],
+        "prohibitedActions": [
+          "delete_file",
+          "force_push",
+          "install_unapproved_dependencies"
+        ]
+      },
+      "context_mapping": {
+        "targetDomain": "https://cleanraccoon.com",
+        "primaryFile": "index.html",
+        "allowedDirectories": [
+          "public",
+          "src"
+        ]
+      }
+    },
+    {
+      "name": "Local Data Guard Profile",
+      "role": "Strict Data Verification Assistant",
+      "description": "Ensures no hardcoded sensitive variables leak into public commits and preserves fixed corporate metadata strings.",
+      "constraints": {
+        "readOnly": true,
+        "enforceStrictStringMatching": true
+      }
+    }
+  ]
+}
