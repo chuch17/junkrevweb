@@ -1267,7 +1267,7 @@
   padding: 0;
   overflow: hidden;
   position: relative;
-  min-height: 100vh;
+  min-height: 85svh;
   align-items: center;
   background-color: transparent;
 }
@@ -1469,7 +1469,7 @@
 }
  
 .services-snapshot {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-3xl) 0;
   background-color: #ffffff;
 }
 
@@ -2621,7 +2621,8 @@
     font-size: var(--font-size-xl);
   }
   .hero-contact {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl) 0;
+    min-height: auto;
   }
   .areas-grid {
     grid-template-columns: 1fr;
@@ -2808,11 +2809,11 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 48px 20px 56px;
+  padding: 28px 20px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .hero-desktop-brand {
@@ -2823,8 +2824,8 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
 }
 
 .hero-desktop-logo {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   filter: drop-shadow(0 4px 25px rgba(249, 115, 22, 0.65));
 }
@@ -2858,11 +2859,11 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
 .hero-desktop-form {
   width: 100%;
   max-width: 28rem;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .hero-desktop-seo {
-  margin: 8px 0 0;
+  margin: 4px 0 0;
   max-width: 720px;
   font-size: clamp(0.95rem, 1.8vw, 1.15rem);
   font-weight: 600;
@@ -2895,7 +2896,7 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
     display: flex !important;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
+    min-height: 52vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
       url("/images/truck-bg.png");
     background-size: cover;
