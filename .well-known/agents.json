@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "name": "Clean Raccoon Junk Removal and Demolition",
+  "description": "Professional eco-friendly junk removal, property cleanouts, and light demolition services serving Peoria, Phoenix, Scottsdale, and surrounding Arizona communities.",
+  "capabilities": [
+    "commercial and residential junk removal",
+    "property cleanouts",
+    "light demolition",
+    "eco-friendly material segregation and recycling distribution"
+  ],
+  "contact": {
+    "email": "cleanraccoon.junkremoval@gmail.com",
+    "phone": "623-888-1023"
+  }
+}
