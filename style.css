@@ -695,6 +695,31 @@
   gap: var(--spacing-sm);
 }
 
+/* Keep the mobile hero tall on phones too (the <480px rule sets it to auto),
+   so the CTA can sit centered in the space between the headline copy and the
+   serving-area line. */
+.hero-contact.hero-mobile-only {
+  min-height: 85svh;
+}
+
+/* Mobile hero CTA: the black box is removed, so re-apply the orange button
+   styling here (plain .btn-accent is green) and bump the size by ~10%. */
+.hero-cta-mobile {
+  background-color: #ff8c00;
+  color: #ffffff;
+  border-color: #ff8c00;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: scale(1.1);
+}
+
+.hero-cta-mobile:hover {
+  background-color: #e07700;
+  border-color: #e07700;
+  color: #ffffff;
+}
+
 .hero-title {
   font-size: var(--font-size-4xl);
   font-style: var(--font-style-heading);
