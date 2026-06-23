@@ -688,7 +688,13 @@
   line-height: 1.6;
   letter-spacing: var(--letter-spacing-body);
 }
- 
+
+/* Hero "Call or Text Now" trigger: keeps the btn-lg size of the old button,
+   just spaces the phone icon from the label. */
+.hero-call-text-btn {
+  gap: var(--spacing-sm);
+}
+
 .hero-title {
   font-size: var(--font-size-4xl);
   font-style: var(--font-style-heading);
