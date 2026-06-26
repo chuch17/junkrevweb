@@ -4,6 +4,13 @@
 
   var LOCATIONS = [
     { label: "Scottsdale, Arizona", href: "/locations/scottsdale-az/" },
+    { label: "Peoria, Arizona", href: "/locations/peoria-az/" },
+    { label: "Phoenix, Arizona", href: "/locations/phoenix-az/" },
+    { label: "Glendale, Arizona", href: "/locations/glendale-az/" },
+    { label: "Tempe, Arizona", href: "/locations/tempe-az/" },
+    { label: "Mesa, Arizona", href: "/locations/mesa-az/" },
+    { label: "Gilbert, Arizona", href: "/locations/gilbert-az/" },
+    { label: "Chandler, Arizona", href: "/locations/chandler-az/" },
     { label: "Homepage", href: "/" },
   ]
 
