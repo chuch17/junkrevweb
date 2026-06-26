@@ -3669,3 +3669,18 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
 .vshow-slide:not(.is-active) .vshow-play {
   display: none;
 }
+
+/* Hero background video: deep-dark placeholder so there is no light-gray
+   flash while the mobile video downloads/decodes. Blends with the video's
+   first frame and the darkening gradient overlay. */
+.hero-contact.hero-mobile-only {
+  background-color: #0a0a0a;
+}
+.hero-video-container {
+  background-color: #0a0a0a;
+}
+.hero-video,
+.hero-video-mobile,
+#hero-video-desktop {
+  background-color: #0a0a0a;
+}
