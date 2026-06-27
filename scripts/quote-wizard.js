@@ -19,6 +19,7 @@
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>',
   }
 
+  var MAX_PHOTOS = 7
   var overlay, panel, body
   var state = blankState()
 
@@ -225,6 +226,7 @@
         '  <label class="qw-drop"><input type="file" accept="image/*" multiple data-qw-files hidden />' +
         '    <span class="qw-drop-icon">' + ICONS.camera + "</span>" +
         '    <span class="qw-drop-text">Tap to choose photos</span></label>' +
+        '  <p class="qw-drop-note" data-qw-drop-note>Maximum of 7 photos</p>' +
         '  <div class="qw-thumbs" data-qw-thumbs></div>' +
         '  <button type="button" class="qw-photo-done" data-qw-photo-done>Done</button>' +
         "</div>" +
@@ -243,6 +245,14 @@
     m.querySelector("[data-qw-photo-done]").addEventListener("click", closeM)
 
     var thumbs = m.querySelector("[data-qw-thumbs]")
+    var dropNote = m.querySelector("[data-qw-drop-note]")
+    function refreshNote() {
+      if (!dropNote) return
+      dropNote.textContent =
+        state.photos.length >= MAX_PHOTOS
+          ? "Maximum reached (" + MAX_PHOTOS + " photos)"
+          : "Maximum of " + MAX_PHOTOS + " photos (" + state.photos.length + "/" + MAX_PHOTOS + ")"
+    }
     function paint() {
       thumbs.innerHTML = ""
       state.photos.forEach(function (p, i) {
@@ -256,21 +266,29 @@
         })
         thumbs.appendChild(t)
       })
+      refreshNote()
     }
     paint()
 
     m.querySelector("[data-qw-files]").addEventListener("change", function (e) {
-      var files = Array.prototype.slice.call(e.target.files || [])
-      files.forEach(function (file) {
-        if (!/^image\//.test(file.type)) return
-        var theFile = file
+      var picked = Array.prototype.slice.call(e.target.files || []).filter(function (f) {
+        return /^image\//.test(f.type)
+      })
+      var remaining = Math.max(0, MAX_PHOTOS - state.photos.length)
+      var toAdd = picked.slice(0, remaining)
+      toAdd.forEach(function (file) {
         var reader = new FileReader()
         reader.onload = function () {
-          state.photos.push({ name: theFile.name, dataUrl: reader.result, file: theFile })
+          if (state.photos.length >= MAX_PHOTOS) return
+          state.photos.push({ name: file.name, dataUrl: reader.result, file: file })
           paint()
         }
-        reader.readAsDataURL(theFile)
+        reader.readAsDataURL(file)
       })
+      if (picked.length > toAdd.length && dropNote) {
+        dropNote.textContent = "You can attach up to " + MAX_PHOTOS + " photos."
+      }
+      e.target.value = ""
     })
   }
 

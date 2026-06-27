@@ -95,6 +95,18 @@
     return urls
   }
 
+  // Turn public photo URLs back into Storage object paths for deletion.
+  function photoUrlsToPaths(urls) {
+    if (!urls || !urls.length) return []
+    var prefix = "/storage/v1/object/public/" + window.CR_PHOTO_BUCKET + "/"
+    return urls
+      .map(function (u) {
+        var i = u.indexOf(prefix)
+        return i >= 0 ? decodeURIComponent(u.slice(i + prefix.length)) : null
+      })
+      .filter(Boolean)
+  }
+
   window.LeadsStore = {
     submit: async function (lead) {
       var sb = getAnonClient()
@@ -127,10 +139,30 @@
       return (res.data || []).map(mapRow)
     },
 
-    remove: async function (id) {
+    remove: async function (id, photoUrls) {
       var sb = getAuthClient()
       var res = await sb.from("leads").delete().eq("id", id)
       if (res.error) throw res.error
+      // Best-effort: also remove this lead's photos from Storage (no extra
+      // permission needed — both deletes are allowed for the admin).
+      var paths = photoUrlsToPaths(photoUrls)
+      if (paths.length) {
+        var del = await sb.storage.from(window.CR_PHOTO_BUCKET).remove(paths)
+        if (del.error) console.error("Photo storage cleanup error:", del.error)
+      }
+    },
+
+    // Delete all photos for a lead: clear the row first (so a failed update —
+    // e.g. missing UPDATE policy — never orphans files), then remove the files.
+    clearPhotos: async function (leadId, photoUrls) {
+      var sb = getAuthClient()
+      var res = await sb.from("leads").update({ photos: [] }).eq("id", leadId)
+      if (res.error) throw res.error
+      var paths = photoUrlsToPaths(photoUrls)
+      if (paths.length) {
+        var del = await sb.storage.from(window.CR_PHOTO_BUCKET).remove(paths)
+        if (del.error) console.error("Photo storage cleanup error:", del.error)
+      }
     },
 
     // ----- admin auth -----

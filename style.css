@@ -3843,3 +3843,12 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
   .qw-title { font-size: 1.3rem; }
   .qw-choice { padding: 1.25rem 0.75rem; }
 }
+
+/* Photo upload limit note (max 7) */
+.qw-drop-note {
+  font-size: 0.8rem;
+  color: #71717a;
+  text-align: center;
+  margin: 0.55rem 0 0;
+  font-weight: 600;
+}

@@ -15,6 +15,7 @@
   var LOCK_KEY = "cr_admin_lock_until"
 
   var gate, passInput, loginBtn, msg, dash, rowsEl, countEl, viewer, viewerImg
+  var currentLeads = []
 
   function $(s, r) { return (r || document).querySelector(s) }
 
@@ -104,17 +105,25 @@
 
   function photosCell(lead) {
     if (!lead.photos || !lead.photos.length) return cellEmpty()
-    return lead.photos
+    var links = lead.photos
       .map(function (p, i) {
         return '<a class="admin-photo-link" data-photo="' + esc(p.url || p.dataUrl) + '">Photo ' + (i + 1) + "</a>"
       })
       .join("")
+    return (
+      '<div class="admin-photos-cell">' +
+      '<button type="button" class="admin-photos-clear" data-clear-photos="' + esc(lead.id) +
+      '" title="Delete all photos" aria-label="Delete all photos">&times;</button>' +
+      '<div class="admin-photos-links">' + links + "</div>" +
+      "</div>"
+    )
   }
 
   function renderGrid() {
     countEl.textContent = "Loading…"
     window.LeadsStore.list()
       .then(function (leads) {
+        currentLeads = leads
         countEl.textContent = leads.length + " lead" + (leads.length === 1 ? "" : "s")
         var rowCount = Math.max(BASELINE_ROWS, leads.length)
         var html = ""
@@ -144,11 +153,33 @@
         rowsEl.querySelectorAll("[data-del]").forEach(function (b) {
           b.addEventListener("click", function () {
             if (!confirm("Delete this lead permanently?")) return
-            window.LeadsStore.remove(b.getAttribute("data-del")).then(renderGrid)
+            var id = b.getAttribute("data-del")
+            var lead = currentLeads.filter(function (l) { return l.id === id })[0]
+            var urls = lead ? lead.photos.map(function (p) { return p.url || p.dataUrl }) : []
+            window.LeadsStore.remove(id, urls).then(renderGrid).catch(function (e) {
+              console.error("delete failed:", e)
+              alert("Couldn't delete: " + (e && e.message ? e.message : e))
+            })
           })
         })
         rowsEl.querySelectorAll("[data-photo]").forEach(function (a) {
           a.addEventListener("click", function () { openViewer(a.getAttribute("data-photo")) })
+        })
+        rowsEl.querySelectorAll("[data-clear-photos]").forEach(function (b) {
+          b.addEventListener("click", function () {
+            var id = b.getAttribute("data-clear-photos")
+            var lead = currentLeads.filter(function (l) { return l.id === id })[0]
+            var urls = lead ? lead.photos.map(function (p) { return p.url || p.dataUrl }) : []
+            if (!confirm("Delete ALL photos for this lead? This removes them from the dashboard and from Supabase storage, and can't be undone.")) return
+            b.disabled = true
+            window.LeadsStore.clearPhotos(id, urls)
+              .then(renderGrid)
+              .catch(function (e) {
+                b.disabled = false
+                console.error("clearPhotos failed:", e)
+                alert("Couldn't delete the photos: " + (e && e.message ? e.message : e))
+              })
+          })
         })
       })
       .catch(function (e) {

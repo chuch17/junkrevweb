@@ -56,3 +56,11 @@ create policy "auth delete lead photos" on storage.objects
   for delete to authenticated using (bucket_id = 'lead-photos');
 
 -- Done. Next: create your admin login user (see the steps in chat).
+
+-- ---------------------------------------------------------------------
+-- ADD-ON (run this if you set it up before the photo-delete feature):
+-- lets the logged-in admin clear the photos column when deleting photos.
+-- ---------------------------------------------------------------------
+drop policy if exists "auth update leads" on public.leads;
+create policy "auth update leads" on public.leads
+  for update to authenticated using (true) with check (true);
