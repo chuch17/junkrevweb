@@ -3272,6 +3272,24 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
   color: #fb923c;
 }
 
+/* "Fill out a form" — matches the Call Us Today button's box, shape, size.
+   It's a <button>, so reset line-height (default 1.15) to match the <a>
+   buttons' height (54px), and use the same orange solid fill. */
+.call-text-modal-btn--form {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  line-height: 1.6;
+  background: #f97316;
+  color: #fff;
+}
+
+.call-text-modal-btn--form:hover {
+  background: #ea580c;
+  color: #fff;
+}
+
 
 /* ============================================================
    REMODEL 2026-06: single-column quote, reviews carousel,
@@ -3683,4 +3701,145 @@ button.nav-locations-trigger.navigation-mobile-link:hover {
 .hero-video-mobile,
 #hero-video-desktop {
   background-color: #0a0a0a;
+}
+
+/* ============================================================
+   Quote Wizard modal
+   ============================================================ */
+.qw-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(9, 9, 11, 0.7);
+  backdrop-filter: blur(3px);
+}
+.qw-overlay.is-open { display: flex; }
+.qw-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #ffffff;
+  color: #18181b;
+  border-radius: 18px;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.6);
+  padding: 2rem 1.75rem 1.75rem;
+  animation: qw-pop 0.22s ease;
+}
+@keyframes qw-pop { from { transform: translateY(12px) scale(0.98); opacity: 0; } to { transform: none; opacity: 1; } }
+.qw-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.95rem;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #f4f4f5;
+  color: #3f3f46;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.qw-close:hover { background: #e4e4e7; }
+.qw-progress { display: flex; gap: 6px; margin: 0.25rem 0 1.25rem; }
+.qw-dot { width: 26px; height: 5px; border-radius: 3px; background: #e4e4e7; transition: background 0.2s ease; }
+.qw-dot.is-on { background: #f97316; }
+.qw-title { font-size: 1.5rem; font-weight: 800; line-height: 1.2; margin: 0 0 1.1rem; color: #18181b; }
+.qw-back {
+  border: none; background: none; color: #71717a; font-weight: 600; cursor: pointer;
+  padding: 0; margin-bottom: 0.5rem; font-size: 0.95rem;
+}
+.qw-back:hover { color: #18181b; }
+
+/* Choice buttons */
+.qw-choices { display: grid; gap: 0.85rem; }
+.qw-choices--2 { grid-template-columns: 1fr 1fr; }
+.qw-choices--stack { grid-template-columns: 1fr; }
+.qw-choice {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem;
+  padding: 1.5rem 1rem; border: 2px solid #e4e4e7; border-radius: 14px; background: #fafafa;
+  cursor: pointer; transition: all 0.16s ease; text-align: center; color: #18181b;
+}
+.qw-choice:hover { border-color: #f97316; background: #fff7ed; transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgba(249,115,22,0.5); }
+.qw-choice-icon { width: 46px; height: 46px; color: #f97316; }
+.qw-choice-icon svg { width: 100%; height: 100%; }
+.qw-choice-label { font-weight: 800; font-size: 1.05rem; }
+.qw-choice--wide { flex-direction: row; align-items: center; text-align: left; gap: 1rem; padding: 1.15rem 1.25rem; }
+.qw-choice--wide .qw-choice-icon { width: 40px; height: 40px; flex-shrink: 0; }
+.qw-choice-text { display: flex; flex-direction: column; gap: 0.2rem; }
+.qw-choice-sub { font-weight: 500; font-size: 0.9rem; color: #71717a; }
+
+/* Form */
+.qw-form { display: flex; flex-direction: column; gap: 0.9rem; }
+.qw-field { display: flex; flex-direction: column; gap: 0.35rem; }
+.qw-label { font-weight: 700; font-size: 0.9rem; color: #3f3f46; }
+.qw-req { color: #ef4444; font-style: normal; }
+.qw-opt { color: #a1a1aa; font-weight: 500; font-size: 0.82rem; }
+.qw-input {
+  width: 100%; box-sizing: border-box; padding: 0.8rem 0.9rem; font-size: 1rem;
+  border: 2px solid #e4e4e7; border-radius: 10px; background: #fff; color: #18181b; font-family: inherit;
+}
+.qw-input:focus { outline: none; border-color: #f97316; box-shadow: 0 0 0 3px rgba(249,115,22,0.15); }
+.qw-area-wrap { position: relative; }
+.qw-textarea { min-height: 120px; resize: vertical; padding-bottom: 2.6rem; }
+.qw-photo-add {
+  position: absolute; left: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 4px;
+  height: 34px; padding: 0 10px; border: 1px solid #e4e4e7; border-radius: 8px; background: #fff;
+  color: #f97316; cursor: pointer; transition: all 0.15s ease;
+}
+.qw-photo-add:hover { background: #fff7ed; border-color: #f97316; }
+.qw-photo-add svg { width: 20px; height: 20px; }
+.qw-photo-plus { font-size: 1.2rem; font-weight: 800; line-height: 1; }
+.qw-photo-count {
+  display: none; align-items: center; justify-content: center; min-width: 18px; height: 18px;
+  padding: 0 4px; border-radius: 9px; background: #f97316; color: #fff; font-size: 0.72rem; font-weight: 800;
+}
+.qw-error { color: #ef4444; font-size: 0.9rem; font-weight: 600; min-height: 1.1rem; }
+.qw-next, .qw-submit {
+  width: 100%; padding: 0.95rem; border: none; border-radius: 12px; background: #f97316; color: #fff;
+  font-size: 1.05rem; font-weight: 800; cursor: pointer; transition: background 0.15s ease;
+}
+.qw-next:hover, .qw-submit:hover { background: #ea670c; }
+.qw-next:disabled, .qw-submit:disabled { opacity: 0.7; cursor: default; }
+.qw-submit-row { display: flex; justify-content: flex-end; margin-top: 0.75rem; }
+.qw-submit--sm { width: auto; padding: 0.7rem 1.4rem; font-size: 0.95rem; }
+
+/* Summary */
+.qw-summary { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.qw-srow { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0.2rem; border-bottom: 1px solid #f4f4f5; }
+.qw-skey { color: #71717a; font-weight: 600; font-size: 0.9rem; }
+.qw-sval { color: #18181b; font-weight: 700; text-align: right; }
+
+/* Photo mini-modal */
+.qw-photo-modal { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.45); border-radius: 18px; padding: 1rem; }
+.qw-photo-box { position: relative; width: 100%; max-width: 360px; background: #fff; border-radius: 14px; padding: 1.4rem; box-shadow: 0 20px 50px -15px rgba(0,0,0,0.5); }
+.qw-photo-close { position: absolute; top: 0.6rem; right: 0.7rem; width: 32px; height: 32px; border: none; border-radius: 50%; background: #f4f4f5; color: #3f3f46; font-size: 1.4rem; cursor: pointer; }
+.qw-photo-title { font-size: 1.15rem; font-weight: 800; margin: 0 0 1rem; }
+.qw-drop { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 1.5rem; border: 2px dashed #d4d4d8; border-radius: 12px; cursor: pointer; color: #71717a; transition: all 0.15s ease; }
+.qw-drop:hover { border-color: #f97316; background: #fff7ed; color: #f97316; }
+.qw-drop-icon svg { width: 34px; height: 34px; }
+.qw-drop-text { font-weight: 600; }
+.qw-thumbs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.9rem; }
+.qw-thumb { position: relative; width: 64px; height: 64px; border-radius: 8px; overflow: hidden; }
+.qw-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.qw-thumb-x { position: absolute; top: 2px; right: 2px; width: 20px; height: 20px; border: none; border-radius: 50%; background: rgba(0,0,0,0.6); color: #fff; font-size: 0.9rem; line-height: 1; cursor: pointer; }
+.qw-photo-done { width: 100%; margin-top: 1rem; padding: 0.7rem; border: none; border-radius: 10px; background: #18181b; color: #fff; font-weight: 700; cursor: pointer; }
+
+/* Success */
+.qw-success { text-align: center; padding: 1rem 0 0.5rem; }
+.qw-success-icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50%; background: #dcfce7; color: #16a34a; margin-bottom: 1rem; }
+.qw-success-icon svg { width: 34px; height: 34px; }
+.qw-success-text { color: #52525b; font-size: 1.05rem; margin: 0 0 1.5rem; }
+
+@media (max-width: 480px) {
+  .qw-panel { padding: 1.75rem 1.25rem 1.4rem; border-radius: 14px; }
+  .qw-title { font-size: 1.3rem; }
+  .qw-choice { padding: 1.25rem 0.75rem; }
 }

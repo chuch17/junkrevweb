@@ -22,6 +22,7 @@
       '    <a href="' +
       SMS_HREF +
       '" class="call-text-modal-btn call-text-modal-btn--text">Text Us Now</a>' +
+      '    <button type="button" class="call-text-modal-btn call-text-modal-btn--form" data-open-wizard>Fill out a form</button>' +
       "  </div>" +
       "</div>"
 
@@ -40,6 +41,12 @@
     }
 
     closeBtn.addEventListener("click", closeModal)
+
+    // "Fill out a form" → close this choice popup, open the Quote Wizard.
+    overlay.querySelector("[data-open-wizard]").addEventListener("click", function () {
+      closeModal()
+      if (window.QuoteWizard && window.QuoteWizard.open) window.QuoteWizard.open()
+    })
 
     overlay.addEventListener("click", function (e) {
       if (e.target === overlay) closeModal()

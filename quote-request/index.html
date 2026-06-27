@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lead Dashboard — Clean Raccoon</title>
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Roboto;
+        font-size: 1rem;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: undefined;
+        text-transform: undefined;
+        letter-spacing: 0.02em;
+        line-height: 1.6;
+        color: var(--color-on-surface);
+        background: var(--color-surface);
+
+        fill: var(--color-on-surface);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        theme: {
+          extend: {
+            colors: {
+              orange: {
+                500: "#FF8C00",
+                600: "#E07700",
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <script>
+      window.toggleLocationsNav =
+        window.toggleLocationsNav ||
+        function (event, trigger) {
+          if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          if (!trigger || !trigger.closest) return false;
+          var wrapper = trigger.closest("[data-locations-nav]");
+          if (!wrapper) return false;
+          var menu = wrapper.querySelector("[data-locations-menu]");
+          if (!menu) return false;
+          var willOpen = !menu.classList.contains("is-open");
+          document.querySelectorAll("[data-locations-nav]").forEach(function (w) {
+            if (w === wrapper) return;
+            var otherMenu = w.querySelector("[data-locations-menu]");
+            var otherTrigger = w.querySelector("[data-locations-trigger]");
+            if (otherMenu) otherMenu.classList.remove("is-open");
+            if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+          });
+          menu.classList.toggle("is-open", willOpen);
+          trigger.setAttribute("aria-expanded", willOpen ? "true" : "false");
+          return false;
+        };
+    </script>
+      <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/quote-request/admin.css" />
+  </head>
+  <body>
+    <div>
+      <div class="home-container10">
+<header class="site-header" role="banner">
+        <navigation-wrapper class="navigation-wrapper">
+          <!--Navigation component-->
+          <div class="navigation-container1">
+            <div class="navigation-container2">
+              <div class="navigation-container3">
+                <style>
+                  @media (prefers-reduced-motion: reduce) {
+                  .navigation-mobile-overlay[data-state="open"] {
+                    animation: none;
+                  }
+                  .navigation-mobile-link:hover {
+                    transform: none;
+                  }
+                  }
+                </style>
+              </div>
+            </div>
+            <nav class="navigation-root">
+              <div class="navigation-container">
+                <a href="/">
+                  <div
+                    aria-label="ClearNest - Back to Homepage"
+                    class="navigation-brand"
+                  >
+                    <div class="navigation-logo-icon">
+                      <img src="/images/logo-white.png" alt="Clean Raccoon Logo" class="nav-logo-img" />
+                    </div>
+                    <div class="brand-text-container">
+                  <span class="section-title">Clean Raccoon</span>
+                  <span class="brand-subtitle">Junk Removal & Demolition</span>
+                </div>
+                  </div>
+                </a>
+                <div class="navigation-desktop-menu">
+                  <div class="navigation-links">
+                    <a href="/#services">
+                      <div class="navigation-link uppercase tracking-wider font-bold font-sans text-white hover:text-orange-500 transition-colors">
+                        <span>Services</span>
+                      </div>
+                    </a>
+                    <div class="nav-locations-dropdown" data-locations-nav>
+                      <button type="button" class="nav-locations-trigger navigation-link uppercase tracking-wider font-bold font-sans text-white hover:text-orange-500 transition-colors cursor-pointer flex items-center gap-1" data-locations-trigger aria-expanded="false" aria-haspopup="true" onclick="return toggleLocationsNav(event, this)">
+                        <span>Locations</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                      </button>
+                                            <div class="nav-locations-menu" data-locations-menu>
+                        <a href="/locations/scottsdale-az/" class="nav-locations-menu-link">Scottsdale, Arizona</a>
+                        <a href="/locations/peoria-az/" class="nav-locations-menu-link">Peoria, Arizona</a>
+                        <a href="/locations/phoenix-az/" class="nav-locations-menu-link">Phoenix, Arizona</a>
+                        <a href="/locations/glendale-az/" class="nav-locations-menu-link">Glendale, Arizona</a>
+                        <a href="/locations/tempe-az/" class="nav-locations-menu-link">Tempe, Arizona</a>
+                        <a href="/locations/mesa-az/" class="nav-locations-menu-link">Mesa, Arizona</a>
+                        <a href="/locations/gilbert-az/" class="nav-locations-menu-link">Gilbert, Arizona</a>
+                        <a href="/locations/chandler-az/" class="nav-locations-menu-link">Chandler, Arizona</a>
+                        <a href="/" class="nav-locations-menu-link">Homepage</a>
+                      </div>
+                    </div>
+
+                  </div>
+                  <a href="/#quote">
+                    <div class="btn-sm navigation-cta btn-primary btn bg-orange-500 text-white px-5 py-2 rounded-md font-bold uppercase tracking-wide hover:bg-orange-600 transition-all">
+                      <span>Get a Quote</span>
+                      <svg
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M5 12h14m-7-7l7 7l-7 7"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+                <button
+                  id="navToggle"
+                  aria-label="Open Menu"
+                  aria-controls="mobileOverlay"
+                  aria-expanded="false"
+                  class="navigation-mobile-toggle"
+                >
+                  <svg
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M4 6h16M4 12h16M4 18h16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </nav>
+            <div id="mobileOverlay" class="navigation-mobile-overlay">
+              <div class="navigation-mobile-header">
+                <a href="/">
+                  <div class="navigation-brand">
+                    <div class="navigation-logo-icon">
+                      <img src="/images/logo-white.png" alt="Clean Raccoon Logo" class="nav-logo-img" />
+                    </div>
+                    <span class="section-title">ClearNest</span>
+                  </div>
+                </a>
+                <button
+                  id="navClose"
+                  aria-label="Close Menu"
+                  class="navigation-mobile-close"
+                >
+                  <svg
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1zm-5.5-3.5l-5 5m0-5l5 5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="navigation-mobile-content">
+                <div class="navigation-mobile-links">
+                  <div class="nav-locations-dropdown nav-locations-dropdown--mobile" data-locations-nav>
+                    <button type="button" class="nav-locations-trigger navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors cursor-pointer flex items-center justify-between py-2 w-full text-left" data-locations-trigger aria-expanded="false" aria-haspopup="true" onclick="return toggleLocationsNav(event, this)">
+                      <span>Locations</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                                        <div class="nav-locations-menu nav-locations-menu--mobile" data-locations-menu>
+                      <a href="/locations/scottsdale-az/" class="nav-locations-menu-link navigation-mobile-link">Scottsdale, Arizona</a>
+                      <a href="/locations/peoria-az/" class="nav-locations-menu-link navigation-mobile-link">Peoria, Arizona</a>
+                      <a href="/locations/phoenix-az/" class="nav-locations-menu-link navigation-mobile-link">Phoenix, Arizona</a>
+                      <a href="/locations/glendale-az/" class="nav-locations-menu-link navigation-mobile-link">Glendale, Arizona</a>
+                      <a href="/locations/tempe-az/" class="nav-locations-menu-link navigation-mobile-link">Tempe, Arizona</a>
+                      <a href="/locations/mesa-az/" class="nav-locations-menu-link navigation-mobile-link">Mesa, Arizona</a>
+                      <a href="/locations/gilbert-az/" class="nav-locations-menu-link navigation-mobile-link">Gilbert, Arizona</a>
+                      <a href="/locations/chandler-az/" class="nav-locations-menu-link navigation-mobile-link">Chandler, Arizona</a>
+                      <a href="/" class="nav-locations-menu-link navigation-mobile-link">Homepage</a>
+                    </div>
+                  </div>
+
+                  <a
+                    href="/#services"
+                    class="navigation-mobile-link uppercase tracking-wider font-bold font-sans hover:text-orange-500 transition-colors"
+                  >
+                    Services
+                  </a>
+                  <a
+                    href="/#quote"
+                    class="navigation-mobile-cta btn btn-lg btn-primary navigation-mobile-link--cta"
+                  >
+                    Book Your Free Estimate
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="navigation-container4">
+              <div class="navigation-container5">
+                <style>
+                          @keyframes slideIn {from {opacity: 0;
+                  transform: translateY(-20px);}
+                  to {opacity: 1;
+                  transform: translateY(0);}}
+                </style>
+              </div>
+            </div>
+            <div class="navigation-container6">
+              <div class="navigation-container7">
+                <script defer="" data-name="navigation-logic">
+                  document.addEventListener('DOMContentLoaded', function() {
+                    (function(){
+                      const navToggle = document.getElementById("navToggle")
+                      const navClose = document.getElementById("navClose")
+                      const mobileOverlay = document.getElementById("mobileOverlay")
+
+                      function openMenu() {
+                        mobileOverlay.setAttribute("data-state", "open")
+                        navToggle.setAttribute("aria-expanded", "true")
+                        document.body.style.overflow = "hidden"
+                      }
+
+                      function closeMenu() {
+                        mobileOverlay.setAttribute("data-state", "closed")
+                        navToggle.setAttribute("aria-expanded", "false")
+                        document.body.style.overflow = ""
+
+                        setTimeout(() => {
+                          if (mobileOverlay.getAttribute("data-state") === "closed") {
+                            mobileOverlay.style.display = "none"
+                          }
+                        }, 400)
+                      }
+
+                      navToggle.addEventListener("click", () => {
+                        mobileOverlay.style.display = "flex"
+                        requestAnimationFrame(() => {
+                          openMenu()
+                        })
+                      })
+
+                      navClose.addEventListener("click", closeMenu)
+
+                      mobileOverlay.addEventListener("click", (e) => {
+                        if (e.target.closest("[data-locations-trigger]")) return
+                        if (
+                          e.target.closest(".navigation-mobile-links a") ||
+                          e.target.classList.contains("navigation-mobile-link") ||
+                          e.target.closest(".nav-locations-menu-link")
+                        ) {
+                          closeMenu()
+                        }
+                      })
+
+                      window.addEventListener("resize", () => {
+                        if (window.innerWidth > 767 && mobileOverlay.getAttribute("data-state") === "open") {
+                          closeMenu()
+                        }
+                      })
+                    })()
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+        </navigation-wrapper>
+        </header>
+        <main id="main-content" class="admin-main">
+          <section class="admin-dash" data-admin-dash hidden>
+            <div class="admin-dash-head">
+              <h1 class="admin-dash-title">Lead Dashboard</h1>
+              <div class="admin-dash-tools">
+                <span class="admin-count" data-admin-count></span>
+                <button type="button" class="admin-btn" data-admin-refresh>Refresh</button>
+                <button type="button" class="admin-btn admin-btn--dark" data-admin-logout>Lock</button>
+              </div>
+            </div>
+            <div class="admin-grid-wrap">
+              <table class="admin-grid">
+                <thead><tr><th class="admin-col-num">#</th><th>Date/Time Received</th><th>Full Name</th><th>Phone Number</th><th>Email Address</th><th>Service Type</th><th>Job Type</th><th>Details</th><th>Attached Photos</th><th>Action</th></tr></thead>
+                <tbody data-admin-rows></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+
+        <div class="admin-gate" data-admin-gate>
+          <div class="admin-gate-box">
+            <div class="admin-gate-lock" aria-hidden="true">&#128274;</div>
+            <h1 class="admin-gate-title">Enter your password</h1>
+            <div class="admin-gate-input-wrap">
+              <input type="password" class="admin-gate-input" data-admin-pass placeholder="Password" autocomplete="off" />
+              <button type="button" class="admin-gate-eye" data-admin-eye aria-label="Show password" aria-pressed="false"></button>
+            </div>
+            <button type="button" class="admin-gate-btn" data-admin-login>Unlock</button>
+            <p class="admin-gate-msg" data-admin-msg></p>
+          </div>
+        </div>
+
+        <div class="admin-viewer" data-admin-viewer>
+          <button type="button" class="admin-viewer-close" data-admin-viewer-close aria-label="Close">&times;</button>
+          <img data-admin-viewer-img alt="Lead photo" />
+        </div>
+<footer-wrapper class="footer-wrapper">
+          <!--Footer component-->
+          <div class="footer-container1">
+            <footer class="footer-root">
+              <div class="footer-media-layer">
+                <img
+                  alt="ClearNest property cleaning service"
+                  src="https://images.pexels.com/photos/11077610/pexels-photo-11077610.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200"
+                  class="footer-bg-image"
+                />
+                <div class="footer-overlay"></div>
+              </div>
+              <div class="footer-container">
+                <div class="footer-grid">
+                  <div class="footer-brand-column footer-column">
+                    <div class="footer-logo-wrapper">
+                      <div class="footer-logo-icon">
+                        <img src="/images/logo-white.png" alt="Clean Raccoon Logo" class="footer-logo-img" />
+                      </div>
+                  <div class="footer-brand-text-container">
+                    <span class="footer-brand-name">
+                      Clean Raccoon
+                    </span>
+                    <span class="footer-brand-subtitle">Junk Removal & Demolition</span>
+                  </div>
+                    </div>
+                    <p class="section-content footer-brand-tagline">
+                      Transforming spaces. From residential hauls to commercial site clearances and demolition, we make room for what matters.
+                    </p>
+                    <div class="footer-social-links">
+                      <a href="https://www.facebook.com/profile.php?id=61582286521957" target="_blank" rel="noreferrer noopener">
+                        <div aria-label="Facebook" class="footer-social-icon">
+                          <svg
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </svg>
+                        </div>
+                      </a>
+                      <a href="https://www.instagram.com/clean.raccoon/" target="_blank" rel="noreferrer noopener">
+                        <div aria-label="Instagram" class="footer-social-icon">
+                          <svg
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24"
+                            viewBox="0 0 24 24"
+                          >
+                            <g
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <rect
+                                x="2"
+                                y="2"
+                                rx="5"
+                                ry="5"
+                                width="20"
+                                height="20"
+                              ></rect>
+                              <path
+                                d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37m1.5-4.87h.01"
+                              ></path>
+                            </g>
+                          </svg>
+                        </div>
+                      </a>
+                      <a href="https://www.tiktok.com/@cleanraccoon" target="_blank" rel="noreferrer noopener">
+                        <div aria-label="TikTok" class="footer-social-icon">
+                          <svg
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"
+                              fill="currentColor"
+                            ></path>
+                          </svg>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="footer-column">
+                    <h2 class="footer-heading section-subtitle">Contact Us</h2>
+                    <div class="footer-contact-info">
+                      <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                          <svg
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </svg>
+                        </div>
+                        <a href="tel:6238881023">
+                          <div class="footer-link">
+                            <span>(623) 888-1023</span>
+                          </div>
+                        </a>
+                      </div>
+                      <div
+                        class="footer-contact-item flex items-center gap-3 text-neutral-400 hover:text-white transition-colors duration-200"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 text-[#f97316] flex-shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          />
+                        </svg>
+                        <a
+                          href="mailto:cleanraccoon.junkremoval@gmail.com"
+                          class="text-sm font-medium tracking-wide break-all"
+                        >
+                          cleanraccoon.junkremoval@gmail.com
+                        </a>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-bottom">
+                  <p class="footer-seo-keywords footer-copyright section-content">
+                    Proudly serving Phoenix AZ, Peoria AZ, Scottsdale AZ, and all other surrounding cities in Arizona
+                  </p>
+                  <div class="footer-divider"></div>
+                  <div class="footer-bottom-content">
+                    <p class="footer-copyright section-content">
+                      2026 Clean Raccoon Junk Removal & Demolition. All rights reserved.
+                    </p>
+                    <div class="footer-legal-links">
+                      <a href="/privacy-policy.html">
+                        <div class="footer-link-sm">
+                          <span>Privacy Policy</span>
+                        </div>
+                      </a>
+                      <a href="/terms-of-service.html">
+                        <div class="footer-link-sm">
+                          <span>Terms of Service</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <div class="footer-container2">
+              <div class="footer-container3">
+                <script defer="" data-name="footer-interactivity">
+                  document.addEventListener('DOMContentLoaded', function() {
+                    (function(){
+                      const footerIcons = document.querySelectorAll(".footer-social-icon")
+
+                      footerIcons.forEach((icon) => {
+                        icon.addEventListener("mouseenter", () => {
+                          icon.style.transition = "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+                        })
+
+                        icon.addEventListener("mouseleave", () => {
+                          icon.style.transition = "all 0.3s ease"
+                        })
+                      })
+
+                      const footerLinks = document.querySelectorAll(".footer-link")
+                      footerLinks.forEach((link) => {
+                        link.addEventListener("click", (e) => {
+                          const href = link.getAttribute("href")
+                          if (href === "#") {
+                            e.preventDefault()
+                          }
+                        })
+                      })
+                    })()
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+        </footer-wrapper>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/scripts/supabase-config.js"></script>
+    <script src="/scripts/leads-store.js"></script>
+    <script src="/scripts/quote-wizard.js"></script>
+    <script src="/scripts/call-text-modal.js"></script>
+    <script src="/scripts/admin-dashboard.js"></script>
+  </body>
+</html>
