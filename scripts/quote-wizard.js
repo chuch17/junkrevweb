@@ -316,9 +316,13 @@
     }).then(function () {
       state.step = 5
       render()
-    }).catch(function () {
+    }).catch(function (e) {
+      try { console.error("Quote submit failed:", e) } catch (_) {}
       var err = body.querySelector("[data-qw-error]")
-      if (err) err.textContent = "Something went wrong. Please try again."
+      var detail =
+        (e && (e.message || e.error_description || e.error || e.hint || e.msg)) ||
+        (typeof e === "string" ? e : "Network/connection error")
+      if (err) err.textContent = "Couldn't submit (" + detail + "). Please try again."
       btns.forEach(function (b) { b.disabled = false; b.textContent = "Submit Quote Request" })
     })
   }
