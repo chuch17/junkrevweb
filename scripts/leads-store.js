@@ -11,15 +11,33 @@
  *   hasSession()     -> Promise<boolean>
  */
 (function () {
-  var client = null
+  var authClient = null
+  var anonClient = null
 
-  function getClient() {
-    if (client) return client
+  function ensureLib() {
     if (!window.supabase || !window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) {
       throw new Error("Supabase client not loaded")
     }
-    client = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY)
-    return client
+  }
+
+  // Admin client — persists the dashboard login session (used by list/remove/auth).
+  function getAuthClient() {
+    if (authClient) return authClient
+    ensureLib()
+    authClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY)
+    return authClient
+  }
+
+  // Public client — ALWAYS anonymous. It ignores any admin session stored in
+  // this browser, so a public quote submission is never sent as the logged-in
+  // admin (whom RLS does not allow to INSERT leads).
+  function getAnonClient() {
+    if (anonClient) return anonClient
+    ensureLib()
+    anonClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY, {
+      auth: { persistSession: false, autoRefreshToken: false, storageKey: "cr-anon-no-session" },
+    })
+    return anonClient
   }
 
   function mapRow(r) {
@@ -79,7 +97,7 @@
 
   window.LeadsStore = {
     submit: async function (lead) {
-      var sb = getClient()
+      var sb = getAnonClient()
       var photoUrls = []
       if (lead.photos && lead.photos.length) {
         photoUrls = await uploadPhotos(sb, lead.photos)
@@ -103,28 +121,28 @@
     },
 
     list: async function () {
-      var sb = getClient()
+      var sb = getAuthClient()
       var res = await sb.from("leads").select("*").order("created_at", { ascending: false })
       if (res.error) throw res.error
       return (res.data || []).map(mapRow)
     },
 
     remove: async function (id) {
-      var sb = getClient()
+      var sb = getAuthClient()
       var res = await sb.from("leads").delete().eq("id", id)
       if (res.error) throw res.error
     },
 
     // ----- admin auth -----
     signIn: function (password) {
-      var sb = getClient()
+      var sb = getAuthClient()
       return sb.auth.signInWithPassword({ email: window.CR_ADMIN_EMAIL, password: password })
     },
     signOut: function () {
-      return getClient().auth.signOut()
+      return getAuthClient().auth.signOut()
     },
     hasSession: async function () {
-      var res = await getClient().auth.getSession()
+      var res = await getAuthClient().auth.getSession()
       return !!(res.data && res.data.session)
     },
   }
