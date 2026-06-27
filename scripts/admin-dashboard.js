@@ -221,11 +221,12 @@
     }
 
     refreshGateState()
-    // Resume an existing admin session if present.
-    window.LeadsStore.hasSession().then(function (authed) {
-      if (authed) unlock()
-      else passInput.focus()
-    }).catch(function () { passInput.focus() })
+    // Always require the password on every page load/refresh: the dashboard
+    // starts locked (gate shown, dash hidden in the HTML) and we never
+    // auto-resume a saved session. Entering the password re-authenticates and
+    // unlocks. The in-page "Refresh" button re-fetches leads without reloading,
+    // so it does NOT log you out.
+    passInput.focus()
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init)
